@@ -10,6 +10,7 @@
 /Users/cda/Git/airBnB/src/main/java/pbardu/airbnb/Main.java
 /Users/cda/Git/airBnB/src/main/java/pbardu/airbnb/data/AirBnBData.java
 /Users/cda/Git/airBnB/src/main/java/pbardu/airbnb/menu/GestionReservations.java
+/Users/cda/Git/airBnB/src/main/java/pbardu/airbnb/web/Accueil.java
 /Users/cda/Git/airBnB/src/main/java/pbardu/airbnb/reservations/ConditionsTarifairesInterface.java
 /Users/cda/Git/airBnB/src/main/java/pbardu/airbnb/reservations/Reservation.java
 /Users/cda/Git/airBnB/src/main/java/pbardu/airbnb/utilisateurs/Voyageur.java

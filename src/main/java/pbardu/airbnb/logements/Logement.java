@@ -20,10 +20,7 @@ public abstract class Logement {
 	}
 
 	public void afficher() {
-
-		System.out.print("l'hôte : ");
-		hote.afficher();
-		System.out.println(".");
+		System.out.println(this.toString());
 	}
 
 	public int getTarifParNuit() {
@@ -44,5 +41,10 @@ public abstract class Logement {
 
 	public int getNbVoyageursMax() {
 		return nbVoyageursMax;
+	}
+
+	@Override
+	public String toString() {
+		return "le logement appartenement à l'hote : " + hote.toString() + ".";
 	}
 }

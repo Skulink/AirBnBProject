@@ -45,4 +45,8 @@ public final class Maison extends Logement {
 	public boolean getPossedePiscine() {
 		return possedePiscine;
 	}
+
+	public boolean isPossedePiscine() {
+		return possedePiscine;
+	}
 }

@@ -3,8 +3,10 @@ package pbardu.airbnb.data;
 import pbardu.airbnb.logements.Appartement;
 import pbardu.airbnb.logements.Logement;
 import pbardu.airbnb.logements.Maison;
+import pbardu.airbnb.reservations.Sejour;
 import pbardu.airbnb.utilisateurs.Hote;
 import pbardu.airbnb.utilisateurs.Voyageur;
+import pbardu.airbnb.reservations.Reservation;
 
 import java.util.ArrayList;
 
@@ -15,12 +17,16 @@ public final class AirBnBData {
     private final ArrayList<Hote> hotes;
     private final ArrayList<Voyageur> voyageurs;
     private final ArrayList<Logement> logements;
+    private final ArrayList<Reservation> reservations;
+    private final ArrayList<Sejour> sejours;
 
     private AirBnBData() {
 
         hotes = new ArrayList<>();
         voyageurs = new ArrayList<>();
         logements = new ArrayList<>();
+        reservations = new ArrayList<>();
+        sejours = new ArrayList<>();
 
         // Hotes
         hotes.add(new Hote("Bardu", "Peter", 30, 12));
@@ -43,6 +49,10 @@ public final class AirBnBData {
         logements.add(new Maison(hotes.get(5), 60, "13 Rue de la LibertÈ, 62800 LiÈvin", 90, 4, 2000, true));
         logements.add(new Appartement(hotes.get(2), 35, "46 Rue des Canonniers, 59800 Lille", 72, 2, 3, 20));
         logements.add(new Appartement(hotes.get(4), 35, "111 Rue Colbert, 37000 Tours", 42, 2, 12, 0));
+
+
+
+
     }
 
     public static AirBnBData getInstance() {

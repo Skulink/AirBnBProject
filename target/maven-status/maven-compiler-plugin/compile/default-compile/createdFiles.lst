@@ -8,6 +8,7 @@ pbardu/airbnb/menu/GestionVoyageurs.class
 pbardu/airbnb/reservations/ConditionsTarifairesInterface.class
 pbardu/airbnb/menu/Menu.class
 pbardu/airbnb/reservations/SejourInterface.class
+pbardu/airbnb/web/Accueil.class
 pbardu/airbnb/logements/Logement.class
 pbardu/airbnb/data/Search.class
 pbardu/airbnb/utilisateurs/Voyageur.class

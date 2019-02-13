@@ -8,10 +8,15 @@ import pbardu.airbnb.data.Search;
 import pbardu.airbnb.logements.Logement;
 import pbardu.airbnb.utilisateurs.Voyageur;
 import pbardu.airbnb.reservations.*;
+import pbardu.airbnb.web.Accueil;
 
 public class Main {
 
     public static void main(String[] args) {
+//Appel interface graphique accueil
+        Accueil mainpage = new Accueil();
+        mainpage.show();
+
 
         /*
         Search.SearchBuilder searchBuilder = new Search.SearchBuilder(2).possedeBalcon(false);
@@ -25,7 +30,7 @@ public class Main {
 
         */
 
-
+/*
         Voyageur voyageur = AirBnBData.getInstance().getVoyageurs().get(0);
 
         // Critères de mon séjour
@@ -39,5 +44,10 @@ public class Main {
         // Réservation
         Reservation reservation = new Reservation(sejour, voyageur);
         reservation.afficher();
+
+
+
+*/
+
     }
 }
