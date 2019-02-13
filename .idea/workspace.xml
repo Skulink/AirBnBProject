@@ -2,32 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c4ade6e-2b12-4c6e-9d34-beb761c2534c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/data/AirBnBData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/data/AirBnBData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/logements/Appartement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/logements/Appartement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/logements/Logement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/logements/Logement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/logements/Maison.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/logements/Maison.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/menu/GestionLogements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/menu/GestionLogements.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/menu/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/reservations/Sejour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/reservations/Sejour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/utilisateurs/Hote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/utilisateurs/Hote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/utilisateurs/Personne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pbardu/airbnb/utilisateurs/Personne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/AIRBNB-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/AIRBNB-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pbardu/airbnb/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pbardu/airbnb/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pbardu/airbnb/data/AirBnBData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pbardu/airbnb/data/AirBnBData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pbardu/airbnb/logements/Appartement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pbardu/airbnb/logements/Appartement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pbardu/airbnb/logements/Logement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pbardu/airbnb/logements/Logement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pbardu/airbnb/logements/Maison.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pbardu/airbnb/logements/Maison.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pbardu/airbnb/menu/GestionLogements.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pbardu/airbnb/menu/GestionLogements.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pbardu/airbnb/menu/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pbardu/airbnb/menu/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pbardu/airbnb/reservations/Sejour.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pbardu/airbnb/reservations/Sejour.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pbardu/airbnb/utilisateurs/Hote.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pbardu/airbnb/utilisateurs/Hote.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pbardu/airbnb/utilisateurs/Personne.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pbardu/airbnb/utilisateurs/Personne.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -89,8 +65,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="117" column="22" lean-forward="true" selection-start-line="117" selection-start-column="22" selection-end-line="117" selection-end-column="22" />
+            <state relative-caret-position="45">
+              <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="75">
+                <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -125,15 +113,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
               <caret line="434" column="21" selection-start-line="434" selection-start-column="21" selection-end-line="434" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pbardu/airbnb/data/Search.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -184,7 +163,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/pbardu/airbnb/web/accueil.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/pbardu/airbnb/web/MenuBar.java" />
         <option value="$PROJECT_DIR$/src/main/java/pbardu/airbnb/menu/GestionLogements.java" />
         <option value="$PROJECT_DIR$/src/main/java/pbardu/airbnb/menu/Menu.java" />
@@ -205,6 +183,7 @@
         <option value="$PROJECT_DIR$/src/main/java/pbardu/airbnb/data/ReservationList.java" />
         <option value="$PROJECT_DIR$/src/main/java/pbardu/airbnb/data/VoyageurList.java" />
         <option value="$PROJECT_DIR$/src/main/java/pbardu/airbnb/web/Accueil.java" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
@@ -344,7 +323,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550091193372" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550091432303" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -401,12 +380,12 @@
       <option name="presentableId" value="Default" />
       <updated>1549983464692</updated>
       <workItem from="1549983465935" duration="655000" />
-      <workItem from="1549984358711" duration="29373000" />
+      <workItem from="1549984358711" duration="29704000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30028000" />
+    <option name="totallyTimeSpent" value="30359000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -421,7 +400,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -439,7 +418,7 @@
       <window_info anchor="bottom" id="TODO" order="8" weight="0.32891566" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32771084" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32771084" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -505,16 +484,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="12" selection-end-line="23" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-25">
-            <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -887,10 +856,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="75">
+            <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="117" column="22" lean-forward="true" selection-start-line="117" selection-start-column="22" selection-end-line="117" selection-end-column="22" />
+        <state relative-caret-position="45">
+          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
         </state>
       </provider>
     </entry>
