@@ -40,11 +40,12 @@ public class Reservation implements Cloneable {
 	}
 
 	public void afficher() {
-		voyageur.afficher();
+		System.out.println(this.toString());
+	}
 
-		System.out.print(" a fait une réservation chez ");
-		sejour.afficher();
-		System.out.println("La réservation " + ((estValidee) ? "est" : "n'est pas" )+ " validée");
+	@Override
+	public String toString() {
+		return voyageur.toString() + " a fait une réservation chez " + sejour.toString() + "La réservation " + ((estValidee) ? "est" : "n'est pas" )+ " validée";
 	}
 
 	public void setEstValidee(boolean estValidee) {

@@ -27,7 +27,10 @@ public class Main {
         */
 
 
+
         /*Voyageur voyageur = AirBnBData.getInstance().getVoyageurs().get(0);
+
+        Voyageur voyageur = AirBnBData.getInstance().getVoyageurs().get(0);
 
         // Critères de mon séjour
         Date dateArrivee = new Date(1552255232322l);
@@ -39,13 +42,10 @@ public class Main {
 
         // Réservation
         Reservation reservation = new Reservation(sejour, voyageur);
-        reservation.afficher();*/
 
+        reservation.afficher();
 
-
-
-       new SearchInterface();
-
-
+        reservation.afficher();
+        */
     }
 }

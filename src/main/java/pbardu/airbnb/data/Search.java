@@ -24,8 +24,7 @@ public class Search {
         possedeJardin = searchBuilder.possedeJardinBuilder;
         possedeBalcon = searchBuilder.possedeBalconBuilder;
     }
-
-
+    
     public ArrayList<Logement> result() {
         ArrayList<Logement> listResult = new ArrayList<>();
 
