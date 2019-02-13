@@ -2,8 +2,6 @@ package pbardu.airbnb.logements;
 
 import pbardu.airbnb.utilisateurs.Hote;
 
-import javax.swing.*;
-
 public abstract class Logement {
 
 	private final Hote hote;
