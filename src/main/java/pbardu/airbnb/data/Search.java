@@ -4,6 +4,7 @@ import pbardu.airbnb.logements.Appartement;
 import pbardu.airbnb.logements.Logement;
 import pbardu.airbnb.logements.Maison;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Search {
