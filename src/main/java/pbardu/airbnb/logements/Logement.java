@@ -2,6 +2,8 @@ package pbardu.airbnb.logements;
 
 import pbardu.airbnb.utilisateurs.Hote;
 
+import javax.swing.*;
+
 public abstract class Logement {
 
 	private final Hote hote;
@@ -20,10 +22,18 @@ public abstract class Logement {
 	}
 
 	public void afficher() {
+		System.out.println(this.toString());
+	}
 
-		System.out.print("l'hôte : ");
-		hote.afficher();
-		System.out.println(".");
+
+	@Override
+	public String toString() {
+
+		return "Logement avec l'hote : " + hote +
+				" le tarif par nuit est de : " + tarifParNuit +
+				" situé à : " + adresse  +
+				" d'une superficie de : " + superficie +" m2 "+
+				" accueille un maximum de : " + nbVoyageursMax + " personne(s) " ;
 	}
 
 	public int getTarifParNuit() {

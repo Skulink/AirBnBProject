@@ -4,6 +4,7 @@ import pbardu.airbnb.logements.Appartement;
 import pbardu.airbnb.logements.Logement;
 import pbardu.airbnb.logements.Maison;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Search {
@@ -23,6 +24,7 @@ public class Search {
         possedeJardin = searchBuilder.possedeJardinBuilder;
         possedeBalcon = searchBuilder.possedeBalconBuilder;
     }
+
 
     public ArrayList<Logement> result() {
         ArrayList<Logement> listResult = new ArrayList<>();
