@@ -123,13 +123,8 @@ public class SearchInterface {
                 System.out.println(logements);
 
                 for (Logement logement: logements) {
-                    System.out.println("--------------------------");
 
-                    System.out.println(logement);
-                    JLabel label = new JLabel();
-
-                    label.setPreferredSize(new Dimension());
-                    label.setText(String.valueOf(logement));
+                    JLabel label = new JLabel("<html>"+logement.toString()+"</html>");
 
                     panel.add(label);
 
@@ -137,16 +132,8 @@ public class SearchInterface {
 
 
 
+                viewResultSearch.setContentPane(panel);
 
-
-                submitResearch.build();
-
-
-                  //viewResultSearch.add(new JLabel(submitResearch.build().result().toString()));
-
-
-
-                viewResultSearch.add(panel);
                 viewResultSearch.setVisible(true);
             }
         });
