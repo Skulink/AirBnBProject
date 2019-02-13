@@ -27,11 +27,11 @@ public abstract class Logement {
 	@Override
 	public String toString() {
 
-		return "Logement avec l'hote : " + hote +
-				" le tarif par nuit est de : " + tarifParNuit +
-				" situé à : " + adresse  +
-				" d'une superficie de : " + superficie +" m2 "+
-				" accueille un maximum de : " + nbVoyageursMax + " personne(s) " ;
+		return  " Logement avec l'hote : " + hote + "<br/>" +
+				" le tarif par nuit est de : " + tarifParNuit + "<br/>" +
+				" situé à : " + adresse  + "<br/>" +
+				" d'une superficie de : " + superficie +" m2 "+ "<br/>" +
+				" accueille un maximum de : " + nbVoyageursMax + " personne(s)" ;
 	}
 
 	public int getTarifParNuit() {

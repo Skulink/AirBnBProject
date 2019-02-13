@@ -44,18 +44,12 @@ public class Main {
         int nbVoyageurs = 2;
 
         Sejour sejour = SejourFactory.getSejour(dateArrivee, logement, nbNuits, nbVoyageurs);
-
+*/
         // Réservation
-        Reservation reservation = new Reservation(sejour, voyageur);
-
-
-        reservation.afficher();
-
-        reservation.afficher();
-        */
+        SearchInterface reservation = new SearchInterface();
     	
-    	PagePrincipale laPagePrincipale = new PagePrincipale();
-    	laPagePrincipale.pagePrincipale();
+    	//PagePrincipale laPagePrincipale = new PagePrincipale();
+    	//laPagePrincipale.pagePrincipale();
 
     }
 }
