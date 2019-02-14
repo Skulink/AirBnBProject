@@ -50,9 +50,7 @@ public class SearchInterface {
         panel.add(checkBoxPiscine);
         panel.add(buttonSearch);
 
-
-
-
+        
         buttonSearch.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -96,7 +94,7 @@ public class SearchInterface {
 
                 viewResultSearch.setTitle("Resultat de la recherche");
                 //On donne un titre a l'application
-                viewResultSearch.setSize(500,500);
+                viewResultSearch.setSize(700,500);
                 // On donne une taille a notre fenetre
                 viewResultSearch.setLocationRelativeTo(null);
                 // On centre la fenetre sur l'ecran
@@ -105,12 +103,7 @@ public class SearchInterface {
                 viewResultSearch.setLayout(new BorderLayout(500,500));
                 // On interdit la redimensionnement de la fenetre
                 viewResultSearch.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                System.out.println(resultNbVoyageurs);
-                System.out.println(resultPrixMini);
-                System.out.println(resultPrixMAxi);
-                System.out.println(resultCheckBoxPiscine);
-                System.out.println(resultCheckBoxBalcon);
-                System.out.println(resultCheckBoxJardin);
+
                 Search.SearchBuilder submitResearch = new Search.SearchBuilder(resultNbVoyageurs)
                         .tarifMinParNuit(resultPrixMini)
                         .tarifMaxParNuit(resultPrixMAxi)
@@ -118,22 +111,14 @@ public class SearchInterface {
                         .possedeBalcon(resultCheckBoxBalcon)
                         .possedeJardin(resultCheckBoxJardin);
                 Search search = submitResearch.build();
-                System.out.println(search.result());
+
                 ArrayList<Logement> logements = search.result();
-                System.out.println(logements);
-
                 for (Logement logement: logements) {
-
                     JLabel label = new JLabel("<html>"+logement.toString()+"</html>");
-
                     panel.add(label);
 
                 }
-
-
-
                 viewResultSearch.setContentPane(panel);
-
                 viewResultSearch.setVisible(true);
             }
         });
