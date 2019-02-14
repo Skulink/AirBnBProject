@@ -2,7 +2,6 @@ package pbardu.airbnb.data;
 
 
 import pbardu.airbnb.logements.Logement;
-import pbardu.airbnb.logements.Maison;
 import pbardu.airbnb.utilisateurs.Hote;
 
 import javax.swing.*;
@@ -13,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 import static java.awt.Color.green;
+import static java.awt.Color.red;
 
 
 /**
@@ -20,22 +20,17 @@ import static java.awt.Color.green;
  * Extends JPanel pour son utilisation
  */
 public class LogementList extends JPanel {
-    private DefaultListModel listModel;
     private JList<String> listDesLogements;
     private final LogementList that = this;
     private List<Logement> list = AirBnBData.getInstance().getLogements();
 
     //Constructeur
-    public LogementList(JPanel mainAside) {
+    public LogementList(boolean withoutAside) {
         this.setLayout(new BorderLayout());
-
-
-
         /*
          Version Java 8 Stream API
          String[] data = list.stream().map(Object::toString).toArray(String[]::new)
          */
-
         // Création d'un tableau de la même taille que la list "list"
         String[] data = new String[list.size()];
         // Pour tous les éléments dans la list "list"
@@ -53,7 +48,6 @@ public class LogementList extends JPanel {
 
     private void buildAside() {
         JPanel mainAside = new JPanel();
-        //mainAside.add(hote);
         JButton buttonAddLogement = new JButton("Ajouter");
         JButton buttonDeleteLogement = new JButton("Supprimer");
         mainAside.add(buttonAddLogement);
@@ -79,7 +73,6 @@ public class LogementList extends JPanel {
                 JLabel labelNbVoyageursMaxt = new JLabel("Indiquer le nombre de voyageur : ");
 
                 //JTextField
-
                 HoteList listHote = new HoteList(true);
                 JTextField textFieldTarifNuit = new JTextField();
                 JTextField textFieldAdresse = new JTextField();
@@ -89,7 +82,14 @@ public class LogementList extends JPanel {
                 btnAddLogement.setBackground(green);
                 btnAddLogement.setOpaque(true);
                 btnAddLogement.setBorderPainted(false);
-                panelHote.setLayout(new GridLayout(11, 1));
+                JButton btnBack = new JButton("Retour");
+                btnBack.setBackground(red);
+                btnBack.setOpaque(true);
+                btnBack.setBorderPainted(false);
+
+
+
+                panelHote.setLayout(new GridLayout(12, 1));
 
                 JScrollPane scrollPaneListHote = new JScrollPane(listHote);
                 //Ajout dans le panelHote du label labelNewHote + listHote
@@ -111,7 +111,16 @@ public class LogementList extends JPanel {
                 panelHote.add(textFieldNbVoyageursMaxt);
                 //Ajout bouton de validation
                 panelHote.add(btnAddLogement);
+                //Ajout du bouton de retour
+                panelHote.add(btnBack);
 
+                btnBack.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        //todo retourne sur l'ecran precedent
+                        panelHote.setVisible(false);
+                    }
+                });
 
                 //Action Listener lors du clic sur le bouton validé
                 btnAddLogement.addActionListener(new ActionListener() {
@@ -147,10 +156,16 @@ public class LogementList extends JPanel {
                             };
 
                             //Mise à jour de la liste des logement avec le new logement
-
                             list.add(addLogement);
                             //System.out.println(list);
                             listDesLogements.setListData(list.stream().map(Object::toString).toArray(String[]::new));
+                        }
+                        else{
+                            //custom title, warning icon
+                            JOptionPane.showMessageDialog(mainAside,
+                                    "Votre saisi n'est pas valide, veuillez recommencer",
+                                    "Champs du formulaire incorrect",
+                                    JOptionPane.WARNING_MESSAGE);
                         }
 
                     }

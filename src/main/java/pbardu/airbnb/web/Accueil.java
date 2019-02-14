@@ -99,7 +99,7 @@ public class Accueil {
         listLogement.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainFrame.setContentPane(new LogementList(mainPanel));
+                mainFrame.setContentPane(new LogementList(false));
                 mainFrame.setVisible(true);
             }
         });
@@ -108,7 +108,7 @@ public class Accueil {
         listHote.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainFrame.setContentPane(new HoteList());
+                mainFrame.setContentPane(new HoteList(false));
                 mainFrame.setVisible(true);
             }
         });
@@ -116,7 +116,7 @@ public class Accueil {
         listVoyageur.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainFrame.setContentPane(new VoyageurList());
+                mainFrame.setContentPane(new VoyageurList(false));
                 mainFrame.setVisible(true);
             }
         });
