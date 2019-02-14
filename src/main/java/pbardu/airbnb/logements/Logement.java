@@ -26,7 +26,6 @@ public abstract class Logement {
 
 	@Override
 	public String toString() {
-
 		return  " Logement avec l'hote : " + hote + "<br/>" +
 				" le tarif par nuit est de : " + tarifParNuit + "<br/>" +
 				" situé à : " + adresse  + "<br/>" +
