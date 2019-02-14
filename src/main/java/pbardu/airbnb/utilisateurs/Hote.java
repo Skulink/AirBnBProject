@@ -11,15 +11,15 @@ public final class Hote extends Personne {
 
 	@Override
 	public void afficher() {
-		System.out.println(this.toString());
+		System.out.print(this.toString());
+	}
+
+	public String toString() {
+		return super.toString() + " qui s'engage à répondre dans les " + delaiReponse + " heures";
 	}
 
 	public int getDelaiReponse() {
 		return delaiReponse;
 	}
 
-	@Override
-	public String toString() {
-		return super.toString() + " qui s'engage à répondre dans les " + delaiReponse + " heures";
-	}
 }

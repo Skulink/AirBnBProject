@@ -2,6 +2,8 @@ package pbardu.airbnb.logements;
 
 import pbardu.airbnb.utilisateurs.Hote;
 
+import javax.swing.*;
+
 public final class Appartement extends Logement{
 
 	private final int superficieBalcon;
@@ -17,6 +19,7 @@ public final class Appartement extends Logement{
 
 	@Override
 	public void afficher() {
+		super.afficher();
 		System.out.println("Le​ ​logement​ est un appartement situé​ " + getAdresse() + " pour " + getNbVoyageursMax() + " utilisateurs max.");
 		System.out.println("Superficie : " + getSuperficie() + "m2");
 
@@ -36,6 +39,11 @@ public final class Appartement extends Logement{
 			break;
 		}
 
+	}
+
+	@Override
+	public String toString() {
+		return super.toString();
 	}
 
 	public int getSuperficieBalcon() {

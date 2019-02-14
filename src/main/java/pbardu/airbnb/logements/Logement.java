@@ -23,6 +23,16 @@ public abstract class Logement {
 		System.out.println(this.toString());
 	}
 
+
+	@Override
+	public String toString() {
+		return  " Logement avec l'hote : " + hote + "<br/>" +
+				" le tarif par nuit est de : " + tarifParNuit + "<br/>" +
+				" situé à : " + adresse  + "<br/>" +
+				" d'une superficie de : " + superficie +" m2 "+ "<br/>" +
+				" accueille un maximum de : " + nbVoyageursMax + " personne(s)" ;
+	}
+
 	public int getTarifParNuit() {
 		return tarifParNuit;
 	}
@@ -41,10 +51,5 @@ public abstract class Logement {
 
 	public int getNbVoyageursMax() {
 		return nbVoyageursMax;
-	}
-
-	@Override
-	public String toString() {
-		return "le logement appartenement à l'hote : " + hote.toString() + ".";
 	}
 }
