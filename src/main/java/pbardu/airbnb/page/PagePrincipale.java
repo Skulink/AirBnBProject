@@ -1,14 +1,12 @@
 package pbardu.airbnb.page;
 
-import java.awt.BorderLayout;
+import pbardu.airbnb.data.Search;
+import pbardu.airbnb.data.SearchInterface;
+
+import java.awt.*;
 import java.awt.event.KeyEvent;
 
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class PagePrincipale {
 
@@ -34,12 +32,13 @@ public class PagePrincipale {
 		//Rendre la fenêtre visible
 		mainFrame.setVisible(true);
 		//Paramétrage du panel
-		mainPanel.setSize(800, 800);
-		mainPanel.setLayout(new BorderLayout());
+	//	mainPanel.setSize(350	, 350);
+
+
 		//Ajouter le BorderPanel nord dans le Panel
 		mainPanel.add(northPanel, BorderLayout.NORTH);
 		mainFrame.setJMenuBar(mainBar);
-		
+
 		//Paramétrage des menus
 		logement.setText("Gestion des logements");
 		mainBar.add(logement);
@@ -49,6 +48,8 @@ public class PagePrincipale {
 		mainBar.add(voyageur);
 		reservation.setText("Gestion des réservations");
 		mainBar.add(reservation);
+
+		SearchInterface searchInterface = new SearchInterface(mainPanel, mainFrame);
 
 	}
 }

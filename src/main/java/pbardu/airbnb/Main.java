@@ -46,10 +46,10 @@ public class Main {
         Sejour sejour = SejourFactory.getSejour(dateArrivee, logement, nbNuits, nbVoyageurs);
 */
         // Réservation
-        SearchInterface reservation = new SearchInterface();
+       // SearchInterface reservation = new SearchInterface();
     	
-    	//PagePrincipale laPagePrincipale = new PagePrincipale();
-    	//laPagePrincipale.pagePrincipale();
+    	PagePrincipale laPagePrincipale = new PagePrincipale();
+    	laPagePrincipale.pagePrincipale();
 
     }
 }

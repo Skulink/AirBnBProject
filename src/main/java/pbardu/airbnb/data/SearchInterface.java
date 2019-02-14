@@ -2,6 +2,7 @@ package pbardu.airbnb.data;
 
 import com.sun.security.auth.module.JndiLoginModule;
 import pbardu.airbnb.logements.Logement;
+import pbardu.airbnb.page.PagePrincipale;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,24 +11,18 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class SearchInterface {
-    private JFrame frame = new JFrame();
-    private JPanel panel = new JPanel(new GridLayout(5,2));
+
     private JButton buttonSearch = new JButton("Rechercher");
 
-    public SearchInterface(){
 
-        frame.setTitle("Ma premiere fenetre");
-        //On donne un titre a l'application
-        frame.setSize(320,240);
-        // On donne une taille a notre fenetre
-        frame.setLocationRelativeTo(null);
-        // On centre la fenetre sur l'ecran
-        frame.setResizable(true);
-        // On interdit la redimensionnement de la fenetre
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        panel.setSize(150,100);
+    public SearchInterface(JPanel panel, JFrame frame){
+
+
        // panel.add(new JButton("toto"));
+
+        panel.setLayout(new GridLayout(5,2));
+        panel.setSize(500,500);
 
         JTextField nbVoyageurs = new JTextField();
         JTextField MinPrice = new JTextField();
@@ -37,6 +32,7 @@ public class SearchInterface {
         JCheckBox checkBoxPiscine = new JCheckBox("Je veux une piscine !");
         JCheckBox checkBoxBalcon = new JCheckBox("Je veux un balcon !");
         JCheckBox checkBoxJardin = new JCheckBox("Je veux un Jardin !");
+
 
 
         panel.add(new JLabel("Nombre de voyageurs *"));
@@ -131,6 +127,8 @@ public class SearchInterface {
         frame.add(panel);
         panel.setVisible(true);
         frame.setVisible(true);
+
+
 
     }
 }
