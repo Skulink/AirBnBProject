@@ -1,6 +1,9 @@
 .DS_Store
 .classpath
 .project
+.idea
+target/
+*.iml
 
 .metadata
 bin/
