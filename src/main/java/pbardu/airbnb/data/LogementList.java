@@ -2,8 +2,10 @@ package pbardu.airbnb.data;
 
 import pbardu.airbnb.data.AirBnBData;
 import pbardu.airbnb.logements.Logement;
+import pbardu.airbnb.web.Accueil;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.List;
 
 
@@ -17,6 +19,8 @@ public class LogementList extends JPanel {
 
     //Constructeur
     public LogementList() {
+        this.setLayout(new BorderLayout());
+
 
         List<Logement> list = AirBnBData.getInstance().getLogements();
 
@@ -36,7 +40,21 @@ public class LogementList extends JPanel {
         }
 
         listDesLogements = new JList<>(data);
-        this.add(listDesLogements);
+        this.add(listDesLogements, BorderLayout.CENTER);
+        this.buildAside();
     }
+
+    private void buildAside(){
+        JPanel mainAside = new JPanel();
+        mainAside.add(new JButton("Ajouter"));
+        mainAside.add(new JButton("Supprimer"));
+        this.add(mainAside, BorderLayout.EAST);
+
+    }
+
+
+
+
+
 
 }

@@ -5,10 +5,12 @@ import pbardu.airbnb.data.LogementList;
 import pbardu.airbnb.data.ReservationList;
 import pbardu.airbnb.data.VoyageurList;
 
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 
 /**
  * Classe permettant de gérer le contenue de l'interface
@@ -19,6 +21,7 @@ public class Accueil {
     private JFrame mainFrame = new JFrame();
     private JPanel mainPanel = new JPanel();
     private JMenuBar mainBar = new JMenuBar();
+    private JPanel mainAside = new JPanel();
 
     /**
      * Constructeur de la page d'accueil
@@ -35,8 +38,8 @@ public class Accueil {
         //Paramétrage du panel
         mainPanel.setSize(800, 800);
         mainPanel.setLayout(new BorderLayout());
-        this.buildMenuBar();
         mainFrame.setJMenuBar(mainBar);
+        this.buildMenuBar();
     }
 
     /**
@@ -45,8 +48,6 @@ public class Accueil {
      */
     private void buildMenuBar() {
         //Déclaration + initialisation + affectation paramétre "text"
-        //du constructeur pour le menu (JMenu) + sous menu (JMenuItem)
-
         JMenu logement = new JMenu("Gestion des logements");
         JMenuItem listLogement = new JMenuItem("Lister les logements");
         JMenuItem addLogement = new JMenuItem("Ajouter un logement");
@@ -83,7 +84,6 @@ public class Accueil {
         mainBar.add(voyageur);
         mainBar.add(reservation);
 
-
         //Gestion lors du clic sur "Lister les logements" du menu "Gestion des logements"
         listLogement.addActionListener(new ActionListener() {
             @Override
@@ -119,6 +119,10 @@ public class Accueil {
         });
 
     }
+
+
+
+
     /**
      * Methode show permanttant l'affichage de la page d'accueil
      */

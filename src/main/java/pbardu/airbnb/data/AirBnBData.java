@@ -49,10 +49,6 @@ public final class AirBnBData {
         logements.add(new Maison(hotes.get(5), 60, "13 Rue de la LibertÈ, 62800 LiÈvin", 90, 4, 2000, true));
         logements.add(new Appartement(hotes.get(2), 35, "46 Rue des Canonniers, 59800 Lille", 72, 2, 3, 20));
         logements.add(new Appartement(hotes.get(4), 35, "111 Rue Colbert, 37000 Tours", 42, 2, 12, 0));
-
-
-
-
     }
 
     public static AirBnBData getInstance() {
