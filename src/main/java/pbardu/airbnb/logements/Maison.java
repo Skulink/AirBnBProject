@@ -37,7 +37,12 @@ public final class Maison extends Logement {
 			System.out.println("Piscine : non");
 		}
 	}
-	
+
+	@Override
+	public String toString() {
+		return super.toString();
+	}
+
 	public int getSuperficieJardin() {
 		return superficieJardin;
 	}

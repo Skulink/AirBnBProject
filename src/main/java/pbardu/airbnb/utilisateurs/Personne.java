@@ -16,6 +16,10 @@ public class Personne {
 
 	// 3° - la methode
 	public void afficher() {
-		System.out.print(prenom + " " + nom + " (" + age + " ans)");
+		System.out.print(this.toString());
+	}
+
+	public String toString() {
+		return prenom + " " + nom + " (" + age + " ans)";
 	}
 }
