@@ -1,6 +1,5 @@
 package pbardu.airbnb.data;
 
-import com.sun.security.auth.module.JndiLoginModule;
 import pbardu.airbnb.logements.Logement;
 import pbardu.airbnb.page.PagePrincipale;
 
@@ -45,8 +44,6 @@ public class SearchInterface {
         panel.add(checkBoxJardin);
         panel.add(checkBoxPiscine);
         panel.add(buttonSearch);
-
-
 
 
         buttonSearch.addActionListener(new ActionListener() {
@@ -111,10 +108,7 @@ public class SearchInterface {
                 Search search = submitResearch.build();
 
                 ArrayList<Logement> logements = search.result();
-
-
                 for (Logement logement: logements) {
-
                     JLabel label = new JLabel("<html>"+logement.toString()+"</html>");
                     panel.add(label);
 

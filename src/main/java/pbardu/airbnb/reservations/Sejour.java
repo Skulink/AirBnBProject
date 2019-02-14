@@ -4,6 +4,10 @@ import java.util.Date;
 
 import pbardu.airbnb.logements.Logement;
 
+
+/**
+ *
+ */
 public abstract class Sejour implements SejourInterface, Cloneable {
 
 	private Logement logement;
@@ -11,6 +15,13 @@ public abstract class Sejour implements SejourInterface, Cloneable {
 	private int nbNuits;
 	private int nbVoyageurs;
 
+	/**
+	 *
+	 * @param dateArrivee
+	 * @param logement
+	 * @param nbNuits
+	 * @param nbVoyageurs
+	 */
 	public Sejour(Date dateArrivee, Logement logement, int nbNuits, int nbVoyageurs) {
 
 		this.logement = logement;
@@ -44,35 +55,63 @@ public abstract class Sejour implements SejourInterface, Cloneable {
 		return nbVoyageurs;
 	}
 
+	/**
+	 *
+	 * @return true si dateArrivee.after(dateCourante)
+	 */
 	@Override
 	public boolean verficationDateArrivee() {
 		Date dateCourante = new Date();
 		return dateArrivee.after(dateCourante);
 	}
 
+	/**
+	 *
+	 * @return true si nbVoyageurs > 0 && nbVoyageurs <= logement.getNbVoyageursMax()
+	 */
 	@Override
 	public boolean verficationNombreDeVoyageurs() {
 		return nbVoyageurs > 0 && nbVoyageurs <= logement.getNbVoyageursMax();
 	}
 
+	/**
+	 *
+	 * @param logement
+	 */
 	public void setLogement(Logement logement) {
 		this.logement = logement;
 		miseAJourTarif();
 	}
 
+	/**
+	 *
+	 * @param dateArrivee
+	 */
 	public void setDateArrivee(Date dateArrivee) {
 		this.dateArrivee = (Date) dateArrivee.clone();
 	}
 
+	/**
+	 *
+	 * @param nbNuits
+	 */
 	public void setNbNuits(int nbNuits) {
 		this.nbNuits = nbNuits;
 		miseAJourTarif();
 	}
 
+	/**
+	 *
+	 * @param nbVoyageurs
+	 */
 	public void setNbVoyageurs(int nbVoyageurs) {
 		this.nbVoyageurs = nbVoyageurs;
 	}
 
+	/**
+	 *
+	 * @return sejour
+	 */
 	@Override
 	public Object clone()  {
 

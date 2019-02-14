@@ -16,7 +16,9 @@ public class Menu {
 	static Scanner scanner;
 
 	static ArrayList<Hote> listHotes;
-	static ArrayList<Logement> listLogements;
+
+
+	public static ArrayList<Logement> listLogements;
 	static ArrayList<Voyageur> listVoyageurs;
 	static ArrayList<Reservation> listReservations;
 
@@ -38,6 +40,9 @@ public class Menu {
 		scanner.close();
 	}
 
+	public static ArrayList<Logement> getListLogements() {
+		return listLogements;
+	}
 	static void listerMenu() {
 
 		System.out.println("-------------------------------------");
