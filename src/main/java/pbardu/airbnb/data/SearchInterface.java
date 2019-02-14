@@ -1,7 +1,6 @@
 package pbardu.airbnb.data;
 
 import pbardu.airbnb.logements.Logement;
-import pbardu.airbnb.page.PagePrincipale;
 
 import javax.swing.*;
 import java.awt.*;
