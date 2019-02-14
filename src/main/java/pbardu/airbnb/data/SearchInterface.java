@@ -1,6 +1,5 @@
 package pbardu.airbnb.data;
 
-import com.sun.security.auth.module.JndiLoginModule;
 import pbardu.airbnb.logements.Logement;
 
 import javax.swing.*;
@@ -50,7 +49,7 @@ public class SearchInterface {
         panel.add(checkBoxPiscine);
         panel.add(buttonSearch);
 
-        
+
         buttonSearch.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
