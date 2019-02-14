@@ -1,9 +1,6 @@
 package pbardu.airbnb.web;
 
-import pbardu.airbnb.data.HoteList;
-import pbardu.airbnb.data.LogementList;
-import pbardu.airbnb.data.ReservationList;
-import pbardu.airbnb.data.VoyageurList;
+import pbardu.airbnb.data.*;
 
 
 import javax.swing.*;
@@ -40,6 +37,8 @@ public class Accueil {
         mainPanel.setLayout(new BorderLayout());
         mainFrame.setJMenuBar(mainBar);
         this.buildMenuBar();
+
+        mainFrame.setContentPane(new SearchInterface());
     }
 
     /**
@@ -47,6 +46,16 @@ public class Accueil {
      * Permettant de construire la barre de navigation
      */
     private void buildMenuBar() {
+        JMenu accueil = new JMenu("Accueil");
+        JMenuItem retour = new JMenuItem("Retour à l'accueil");
+        retour.addActionListener(e -> {
+            System.out.println("click");
+            mainFrame.setContentPane(new SearchInterface());
+            mainFrame.revalidate();
+            mainFrame.repaint();
+        });
+        accueil.add(retour);
+
         //Déclaration + initialisation + affectation paramétre "text"
         JMenu logement = new JMenu("Gestion des logements");
         JMenuItem listLogement = new JMenuItem("Lister les logements");
@@ -79,6 +88,8 @@ public class Accueil {
         reservation.add(listReservation);
         reservation.add(addReservation);
         reservation.add(removeReservation);
+
+        mainBar.add(accueil);
         mainBar.add(logement);
         mainBar.add(hote);
         mainBar.add(voyageur);
