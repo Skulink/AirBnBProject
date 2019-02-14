@@ -9,10 +9,10 @@ import java.util.List;
 public class HoteList extends JPanel {
     private JList<String> listDesHotes;
 
-    //Constructeur
-    public HoteList() {
-        this.setLayout(new BorderLayout());
 
+    //Constructeur
+    public HoteList(boolean withoutAside) {
+        this.setLayout(new BorderLayout());
         List<Hote> list = AirBnBData.getInstance().getHotes();
 
         /*
@@ -31,8 +31,15 @@ public class HoteList extends JPanel {
         }
 
         listDesHotes = new JList<>(data);
+        listDesHotes.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.add(listDesHotes,BorderLayout.CENTER);
-        this.buildAside();
+        if(!withoutAside) {
+            this.buildAside();
+        }
+    }
+
+    public HoteList() {
+       this(false);
     }
 
 
@@ -43,5 +50,33 @@ public class HoteList extends JPanel {
         this.add(mainAside, BorderLayout.EAST);
     }
 
+    public Hote getSelectedHote() {
+        List<String> selection = listDesHotes.getSelectedValuesList();
+        if(selection.size() > 0) {
+            String hoteString = selection.get(0);
+            List<Hote> list = AirBnBData.getInstance().getHotes();
+
+            /*
+            Version 8 BG ©Jheissler
+            return list.stream()
+                .filter(hote -> hote.toString().equals(hoteString)) // Ne garde que ceux qui respecte le test
+                .findFirst() // On recupère le premier ou aucun Optional<Hote>
+                .orElseGet(null); // On récupère cette valeur ou null si elle n'existe pas
+            */
+
+            for(Hote h : list) {
+                if(h.toString().equals(hoteString)) {
+                    return h;
+                }
+            }
+            return null;
+        } else {
+            return null;
+        }
+
+    }
+    public void setListDesHotes(JList<String> listDesHotes) {
+        this.listDesHotes = listDesHotes;
+    }
 
 }

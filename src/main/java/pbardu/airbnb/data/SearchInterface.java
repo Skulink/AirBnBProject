@@ -29,8 +29,8 @@ public class SearchInterface {
        // panel.add(new JButton("toto"));
 
         JTextField nbVoyageurs = new JTextField();
-        JTextField MinPrice = new JTextField();
-        JTextField MaxPrice = new JTextField();
+        JTextField minPrice = new JTextField();
+        JTextField maxPrice = new JTextField();
 
 
         JCheckBox checkBoxPiscine = new JCheckBox("Je veux une piscine !");
@@ -41,9 +41,9 @@ public class SearchInterface {
         panel.add(new JLabel("Nombre de voyageurs *"));
         panel.add(nbVoyageurs);
         panel.add(new JLabel("Prix minimum"));
-        panel.add(MinPrice);
+        panel.add(minPrice);
         panel.add(new JLabel("Prix maximum"));
-        panel.add(MaxPrice);
+        panel.add(maxPrice);
         panel.add(checkBoxBalcon);
         panel.add(checkBoxJardin);
         panel.add(checkBoxPiscine);
@@ -60,13 +60,13 @@ public class SearchInterface {
                 }
 
                 int resultPrixMini = 0;
-                if(MinPrice.getText().trim().length() > 0) {
-                    resultPrixMini = Integer.parseInt(MinPrice.getText());
+                if(minPrice.getText().trim().length() > 0) {
+                    resultPrixMini = Integer.parseInt(minPrice.getText());
                 }
 
                 int resultPrixMAxi = Integer.MAX_VALUE;
-                if(MaxPrice.getText().trim().length() > 0) {
-                    resultPrixMAxi = Integer.parseInt(MaxPrice.getText());
+                if(maxPrice.getText().trim().length() > 0) {
+                    resultPrixMAxi = Integer.parseInt(maxPrice.getText());
                 }
 
                 boolean resultCheckBoxPiscine = false;

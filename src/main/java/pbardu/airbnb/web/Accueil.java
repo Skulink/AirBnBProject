@@ -88,7 +88,7 @@ public class Accueil {
         listLogement.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainFrame.setContentPane(new LogementList());
+                mainFrame.setContentPane(new LogementList(mainPanel));
                 mainFrame.setVisible(true);
             }
         });
