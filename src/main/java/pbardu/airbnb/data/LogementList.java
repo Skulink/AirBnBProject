@@ -2,6 +2,7 @@ package pbardu.airbnb.data;
 
 
 import pbardu.airbnb.logements.Logement;
+import pbardu.airbnb.logements.Maison;
 import pbardu.airbnb.utilisateurs.Hote;
 
 import javax.swing.*;
@@ -19,16 +20,16 @@ import static java.awt.Color.green;
  * Extends JPanel pour son utilisation
  */
 public class LogementList extends JPanel {
-
+    private DefaultListModel listModel;
     private JList<String> listDesLogements;
     private final LogementList that = this;
+    private List<Logement> list = AirBnBData.getInstance().getLogements();
 
     //Constructeur
     public LogementList(JPanel mainAside) {
         this.setLayout(new BorderLayout());
 
 
-        List<Logement> list = AirBnBData.getInstance().getLogements();
 
         /*
          Version Java 8 Stream API
@@ -137,19 +138,23 @@ public class LogementList extends JPanel {
                         }
 
                         if (resultTarifParNuit != 0 && resultAdresse != null && resultSuperficie != 0 && resultNbrVoyageurs != 0) {
-                            //System.out.println(resultHotList + "" + resultTarifParNuit + "" + resultAdresse + "" + resultSuperficie + "" + resultNbrVoyageurs);
+                            System.out.println(resultHotList + "" + resultTarifParNuit + "" + resultAdresse + "" + resultSuperficie + "" + resultNbrVoyageurs);
                             Logement addLogement = new Logement(resultHotList, resultTarifParNuit, resultAdresse, resultSuperficie, resultNbrVoyageurs) {
                                 @Override
                                 public Hote getHote() {
                                     return super.getHote();
                                 }
                             };
+
+                            //Mise à jour de la liste des logement avec le new logement
+
+                            list.add(addLogement);
+                            //System.out.println(list);
+                            listDesLogements.setListData(list.stream().map(Object::toString).toArray(String[]::new));
                         }
 
                     }
                 });
-
-
 
 
                 that.add(panelHote, BorderLayout.EAST);

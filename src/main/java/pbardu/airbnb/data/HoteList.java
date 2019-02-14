@@ -75,8 +75,6 @@ public class HoteList extends JPanel {
         }
 
     }
-    public void setListDesHotes(JList<String> listDesHotes) {
-        this.listDesHotes = listDesHotes;
-    }
+
 
 }
