@@ -1,12 +1,17 @@
 package pbardu.airbnb.data;
 
-import pbardu.airbnb.data.AirBnBData;
+
 import pbardu.airbnb.logements.Logement;
-import pbardu.airbnb.web.Accueil;
+import pbardu.airbnb.utilisateurs.Hote;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import java.util.List;
+
+import static java.awt.Color.green;
 
 
 /**
@@ -16,9 +21,10 @@ import java.util.List;
 public class LogementList extends JPanel {
 
     private JList<String> listDesLogements;
+    private final LogementList that = this;
 
     //Constructeur
-    public LogementList() {
+    public LogementList(JPanel mainAside) {
         this.setLayout(new BorderLayout());
 
 
@@ -32,7 +38,7 @@ public class LogementList extends JPanel {
         // Création d'un tableau de la même taille que la list "list"
         String[] data = new String[list.size()];
         // Pour tous les éléments dans la list "list"
-        for(int i = 0; i < list.size(); i++) {
+        for (int i = 0; i < list.size(); i++) {
             Logement logement = list.get(i);
             // On converti le logement en chaine de caractère
             String s = logement.toString();
@@ -44,17 +50,112 @@ public class LogementList extends JPanel {
         this.buildAside();
     }
 
-    private void buildAside(){
+    private void buildAside() {
         JPanel mainAside = new JPanel();
-        mainAside.add(new JButton("Ajouter"));
-        mainAside.add(new JButton("Supprimer"));
+        //mainAside.add(hote);
+        JButton buttonAddLogement = new JButton("Ajouter");
+        JButton buttonDeleteLogement = new JButton("Supprimer");
+        mainAside.add(buttonAddLogement);
+        mainAside.add(buttonDeleteLogement);
         this.add(mainAside, BorderLayout.EAST);
 
+
+        buttonAddLogement.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                that.remove(mainAside);
+                that.revalidate();
+                that.repaint();
+
+                JPanel panelHote = new JPanel();
+
+                //JLabel
+                JLabel labelNewHote = new JLabel("Selectionner l'hôte");
+                JLabel labelTarifParNuit = new JLabel("Indiquer le tarif par nuit : ");
+                JLabel labelAdresse = new JLabel("Indiquer l'adresse : ");
+                JLabel labelSuperficie = new JLabel("Indiquer la superficie : ");
+                JLabel labelNbVoyageursMaxt = new JLabel("Indiquer le nombre de voyageur : ");
+
+                //JTextField
+
+                HoteList listHote = new HoteList(true);
+                JTextField textFieldTarifNuit = new JTextField();
+                JTextField textFieldAdresse = new JTextField();
+                JTextField textFieldSuperficie = new JTextField();
+                JTextField textFieldNbVoyageursMaxt = new JTextField();
+                JButton btnAddLogement = new JButton("Ajouter le logement");
+                btnAddLogement.setBackground(green);
+                btnAddLogement.setOpaque(true);
+                btnAddLogement.setBorderPainted(false);
+                panelHote.setLayout(new GridLayout(11, 1));
+
+                JScrollPane scrollPaneListHote = new JScrollPane(listHote);
+                //Ajout dans le panelHote du label labelNewHote + listHote
+                panelHote.add(labelNewHote);
+                panelHote.add(scrollPaneListHote);
+
+
+                //Ajout dans le panelHote du label labelTarifParNuit + listHote
+                panelHote.add(labelTarifParNuit);
+                panelHote.add(textFieldTarifNuit);
+                //Ajout dans le panelHote du label labelAdresse + textFieldAdresse
+                panelHote.add(labelAdresse);
+                panelHote.add(textFieldAdresse);
+                //Ajout dans le panelHote du label labelSuperficie + textFieldSuperficie
+                panelHote.add(labelSuperficie);
+                panelHote.add(textFieldSuperficie);
+                //Ajout dans le panelHote du label labelTarifParNuit + textFieldNbVoyageursMaxt
+                panelHote.add(labelNbVoyageursMaxt);
+                panelHote.add(textFieldNbVoyageursMaxt);
+                //Ajout bouton de validation
+                panelHote.add(btnAddLogement);
+
+
+                //Action Listener lors du clic sur le bouton validé
+                btnAddLogement.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        Hote resultHotList = listHote.getSelectedHote();
+
+                        int resultTarifParNuit = 0;
+                        if (textFieldTarifNuit.getText().trim().length() > 0) {
+                            resultTarifParNuit = Integer.parseInt(textFieldTarifNuit.getText());
+                        }
+
+                        String resultAdresse = "";
+                        if (textFieldAdresse.getText().trim().length() > 0) {
+                            resultAdresse = textFieldAdresse.getText();
+                        }
+                        int resultSuperficie = 0;
+                        if (textFieldSuperficie.getText().trim().length() > 0) {
+                            resultSuperficie = Integer.parseInt(textFieldSuperficie.getText());
+                        }
+                        int resultNbrVoyageurs = 0;
+                        if (textFieldNbVoyageursMaxt.getText().trim().length() > 0) {
+                            resultNbrVoyageurs = Integer.parseInt(textFieldNbVoyageursMaxt.getText());
+                        }
+
+                        if (resultTarifParNuit != 0 && resultAdresse != null && resultSuperficie != 0 && resultNbrVoyageurs != 0) {
+                            //System.out.println(resultHotList + "" + resultTarifParNuit + "" + resultAdresse + "" + resultSuperficie + "" + resultNbrVoyageurs);
+                            Logement addLogement = new Logement(resultHotList, resultTarifParNuit, resultAdresse, resultSuperficie, resultNbrVoyageurs) {
+                                @Override
+                                public Hote getHote() {
+                                    return super.getHote();
+                                }
+                            };
+                        }
+
+                    }
+                });
+
+
+
+
+                that.add(panelHote, BorderLayout.EAST);
+                that.revalidate();
+                that.repaint();
+            }
+        });
     }
-
-
-
-
-
-
 }
