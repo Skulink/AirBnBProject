@@ -1,163 +1,174 @@
 package pbardu.airbnb.menu;
 
 import pbardu.airbnb.logements.Appartement;
+import pbardu.airbnb.logements.Logement;
 import pbardu.airbnb.logements.Maison;
+
+
+import java.util.ArrayList;
+
+import java.util.List;
+
 
 public class GestionLogements {
 
-	static void listerLogements() {
+    static public void listerLogements() {
 
-		System.out.println("-------------------------------------");
-		System.out.println("Liste des logements ");
+        System.out.println("-------------------------------------");
+        System.out.println("Liste des logements ");
 
-		for (int i = 0; i < Menu.listLogements.size(); i++) {
-			System.out.print("Numéro " + i + " :");
-			Menu.listLogements.get(i).afficher();
-		}
+        for (int i = 0; i < Menu.listLogements.size(); i++) {
+            System.out.print("Numéro " + i + " :");
+            Menu.listLogements.get(i).afficher();
+        }
 
-		System.out.println("Saisir une option : ");
-		System.out.println("1 : Ajouter un logement");
-		System.out.println("2 : Supprimer un logement");
-		System.out.println("3 : Retour");
+        //List<String> listeDesLogements = new ArrayList<String>();
 
-		try {
 
-			switch (Menu.choix(3)) {
-			case 1:
-				ajouterLogement();
-				break;
-			case 2:
-				supprimerLogement();
-				break;
-			case 3:
-				Menu.listerMenu();
-				break;
-			}
 
-		} catch (IndexOutOfBoundsException e){
-			System.out.println("Une erreur est survenue lors de la suppression");
-			listerLogements();
-		} catch (Exception e) {
-			System.out.println("Une erreur est survenue");
-			Menu.scanner.next();
-			listerLogements();
-		}
-	}
+        System.out.println("Saisir une option : ");
+        System.out.println("1 : Ajouter un logement");
+        System.out.println("2 : Supprimer un logement");
+        System.out.println("3 : Retour");
 
-	private static void ajouterLogement() throws Exception {
+        try {
 
-		System.out.println("-------------------------------------");
-		System.out.println("Ajouter un nouveau logement");
+            switch (Menu.choix(3)) {
+                case 1:
+                    ajouterLogement();
+                    break;
+                case 2:
+                    supprimerLogement();
+                    break;
+                case 3:
+                    Menu.listerMenu();
+                    break;
+            }
 
-		System.out.println("Saisir une option : ");
-		System.out.println("1 : Ajouter une maison");
-		System.out.println("2 : Ajouter un appartement");
-		System.out.println("3 : Retour");
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Une erreur est survenue lors de la suppression");
+            listerLogements();
+        } catch (Exception e) {
+            System.out.println("Une erreur est survenue");
+            Menu.scanner.next();
+            listerLogements();
+        }
+    }
 
-		switch (Menu.choix(3)) {
-		case 1:
-			ajouterUneMaison();
-			break;
-		case 2:
-			ajouterUnAppartement();
-			break;
-		case 3:
-			listerLogements();
-			break;
-		}
-	}
+    private static void ajouterLogement() throws Exception {
 
-	private static void ajouterUneMaison() throws Exception {
+        System.out.println("-------------------------------------");
+        System.out.println("Ajouter un nouveau logement");
 
-		System.out.println("-------------------------------------");
-		System.out.println("Ajouter une maison");
+        System.out.println("Saisir une option : ");
+        System.out.println("1 : Ajouter une maison");
+        System.out.println("2 : Ajouter un appartement");
+        System.out.println("3 : Retour");
 
-		System.out.println("Liste des hôtes : ");
+        switch (Menu.choix(3)) {
+            case 1:
+                ajouterUneMaison();
+                break;
+            case 2:
+                ajouterUnAppartement();
+                break;
+            case 3:
+                listerLogements();
+                break;
+        }
+    }
 
-		for (int i = 0; i < Menu.listHotes.size(); i++) {
-			System.out.print("Numéro " + i + " :");
-			Menu.listHotes.get(i).afficher();
-			System.out.println();
-		}
-		System.out.print("Numéro de l'hôte : ");
-		int numeroHote = Menu.scanner.nextInt();
-		System.out.print("Tarif journalier : ");
-		int tarifJournalier = Menu.scanner.nextInt();
-		System.out.print("Adresse : ");
-		String adresse = Menu.scanner.next();
-		System.out.print("Superficie : ");
-		int supperficie = Menu.scanner.nextInt();
-		System.out.print("Nombre de voyageurs max : ");
-		int nbVoyageur = Menu.scanner.nextInt();
-		System.out.print("Superficie du jardin : ");
-		int superficieJardin = Menu.scanner.nextInt();
-		System.out.print("Piscine (0 : non, 1 : oui) : ");
-		boolean possedePiscine = Menu.scanner.nextInt() == 1;
-		System.out.println();
+    private static void ajouterUneMaison() throws Exception {
 
-		Maison newMaison = new Maison(Menu.listHotes.get(numeroHote),
-				tarifJournalier, adresse, supperficie, nbVoyageur,
-				superficieJardin, possedePiscine);
-		Menu.listLogements.add(newMaison);
+        System.out.println("-------------------------------------");
+        System.out.println("Ajouter une maison");
 
-		System.out.println("Votre maison a été ajoutée avec succés");
+        System.out.println("Liste des hôtes : ");
 
-		listerLogements();
-	}
+        for (int i = 0; i < Menu.listHotes.size(); i++) {
+            System.out.print("Numéro " + i + " :");
+            Menu.listHotes.get(i).afficher();
+            System.out.println();
+        }
+        System.out.print("Numéro de l'hôte : ");
+        int numeroHote = Menu.scanner.nextInt();
+        System.out.print("Tarif journalier : ");
+        int tarifJournalier = Menu.scanner.nextInt();
+        System.out.print("Adresse : ");
+        String adresse = Menu.scanner.next();
+        System.out.print("Superficie : ");
+        int supperficie = Menu.scanner.nextInt();
+        System.out.print("Nombre de voyageurs max : ");
+        int nbVoyageur = Menu.scanner.nextInt();
+        System.out.print("Superficie du jardin : ");
+        int superficieJardin = Menu.scanner.nextInt();
+        System.out.print("Piscine (0 : non, 1 : oui) : ");
+        boolean possedePiscine = Menu.scanner.nextInt() == 1;
+        System.out.println();
 
-	private static void ajouterUnAppartement() throws Exception {
+        Maison newMaison = new Maison(Menu.listHotes.get(numeroHote),
+                tarifJournalier, adresse, supperficie, nbVoyageur,
+                superficieJardin, possedePiscine);
+        Menu.listLogements.add(newMaison);
 
-		System.out.println("-------------------------------------");
-		System.out.println("Ajouter un appartement");
+        System.out.println("Votre maison a été ajoutée avec succés");
 
-		System.out.println("Liste des hôtes : ");
+        listerLogements();
+    }
 
-		for (int i = 0; i < Menu.listHotes.size(); i++) {
-			System.out.print("Numéro " + i + " :");
-			Menu.listHotes.get(i).afficher();
-			System.out.println();
-		}
+    private static void ajouterUnAppartement() throws Exception {
 
-		System.out.print("Numéro de l'hôte : ");
-		int numeroHote = Menu.scanner.nextInt();
-		System.out.print("Tarif journalier : ");
-		int tarifJournalier = Menu.scanner.nextInt();
-		System.out.print("Adresse : ");
-		String adresse = Menu.scanner.next();
-		System.out.print("Superficie : ");
-		int supperficie = Menu.scanner.nextInt();
-		System.out.print("Nombre de voyageurs max : ");
-		int nbVoyageur = Menu.scanner.nextInt();
-		System.out.print("Superficie du balcon : ");
-		int superficieBalcon = Menu.scanner.nextInt();
-		System.out.print("Numéro de l'étage : ");
-		int numEtage = Menu.scanner.nextInt();
-		System.out.println();
+        System.out.println("-------------------------------------");
+        System.out.println("Ajouter un appartement");
 
-		Appartement newAppartement = new Appartement(
-				Menu.listHotes.get(numeroHote), tarifJournalier, adresse,
-				supperficie, nbVoyageur, numEtage, superficieBalcon);
-		Menu.listLogements.add(newAppartement);
+        System.out.println("Liste des hôtes : ");
 
-		System.out.println("Votre appartement a été ajouté avec succés");
+        for (int i = 0; i < Menu.listHotes.size(); i++) {
+            System.out.print("Numéro " + i + " :");
+            Menu.listHotes.get(i).afficher();
+            System.out.println();
+        }
 
-		listerLogements();
-	}
+        System.out.print("Numéro de l'hôte : ");
+        int numeroHote = Menu.scanner.nextInt();
+        System.out.print("Tarif journalier : ");
+        int tarifJournalier = Menu.scanner.nextInt();
+        System.out.print("Adresse : ");
+        String adresse = Menu.scanner.next();
+        System.out.print("Superficie : ");
+        int supperficie = Menu.scanner.nextInt();
+        System.out.print("Nombre de voyageurs max : ");
+        int nbVoyageur = Menu.scanner.nextInt();
+        System.out.print("Superficie du balcon : ");
+        int superficieBalcon = Menu.scanner.nextInt();
+        System.out.print("Numéro de l'étage : ");
+        int numEtage = Menu.scanner.nextInt();
+        System.out.println();
 
-	private static void supprimerLogement() throws IndexOutOfBoundsException {
+        Appartement newAppartement = new Appartement(
+                Menu.listHotes.get(numeroHote), tarifJournalier, adresse,
+                supperficie, nbVoyageur, numEtage, superficieBalcon);
+        Menu.listLogements.add(newAppartement);
 
-		System.out.println("-------------------------------------");
-		System.out.println("Supprimer un logement");
+        System.out.println("Votre appartement a été ajouté avec succés");
 
-		System.out.print("Numéro : ");
-		int numero = Menu.scanner.nextInt();
-		System.out.println();
+        listerLogements();
+    }
 
-		Menu.listLogements.remove(numero);
+    private static void supprimerLogement() throws IndexOutOfBoundsException {
 
-		System.out.println("Votre logement a été supprimé avec succés");
+        System.out.println("-------------------------------------");
+        System.out.println("Supprimer un logement");
 
-		listerLogements();
-	}
+        System.out.print("Numéro : ");
+        int numero = Menu.scanner.nextInt();
+        System.out.println();
+
+        Menu.listLogements.remove(numero);
+
+        System.out.println("Votre logement a été supprimé avec succés");
+
+        listerLogements();
+    }
 
 }

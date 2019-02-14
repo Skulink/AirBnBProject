@@ -49,4 +49,8 @@ public final class Appartement extends Logement{
 	public int getSuperficieBalcon() {
 		return superficieBalcon;
 	}
+
+	public int getNumeroEtage() {
+		return numeroEtage;
+	}
 }
