@@ -3,8 +3,10 @@ package pbardu.airbnb.data;
 import pbardu.airbnb.logements.Appartement;
 import pbardu.airbnb.logements.Logement;
 import pbardu.airbnb.logements.Maison;
+import pbardu.airbnb.reservations.Sejour;
 import pbardu.airbnb.utilisateurs.Hote;
 import pbardu.airbnb.utilisateurs.Voyageur;
+import pbardu.airbnb.reservations.Reservation;
 
 import java.util.ArrayList;
 
@@ -15,12 +17,16 @@ public final class AirBnBData {
     private final ArrayList<Hote> hotes;
     private final ArrayList<Voyageur> voyageurs;
     private final ArrayList<Logement> logements;
+    private final ArrayList<Reservation> reservations;
+    private final ArrayList<Sejour> sejours;
 
     private AirBnBData() {
 
         hotes = new ArrayList<>();
         voyageurs = new ArrayList<>();
         logements = new ArrayList<>();
+        reservations = new ArrayList<>();
+        sejours = new ArrayList<>();
 
         // Hotes
         hotes.add(new Hote("Bardu", "Peter", 30, 12));

@@ -1,28 +1,12 @@
 package pbardu.airbnb;
 
-import java.util.ArrayList;
-import java.util.Date;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import pbardu.airbnb.data.AirBnBData;
-import pbardu.airbnb.data.Search;
-import pbardu.airbnb.logements.Logement;
-import pbardu.airbnb.page.PagePrincipale;
-import pbardu.airbnb.utilisateurs.Voyageur;
-import pbardu.airbnb.reservations.*;
+import pbardu.airbnb.web.Accueil;
 
 public class Main {
 
     public static void main(String[] args) {
-
-    	PagePrincipale laPagePrincipale = new PagePrincipale();
-    	laPagePrincipale.pagePrincipale();
-
-
-
-
-
+        //Appel interface graphique accueil
+        Accueil mainpage = new Accueil();
+        mainpage.show();
     }
 }

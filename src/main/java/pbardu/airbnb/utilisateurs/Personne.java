@@ -1,5 +1,6 @@
 package pbardu.airbnb.utilisateurs;
 
+
 public class Personne {
 
 	// 1° - Les attributs
@@ -8,6 +9,13 @@ public class Personne {
 	private final int age;
 
 	// 2° - le constructeur
+
+	/**
+	 *
+	 * @param pNom
+	 * @param pPrenom
+	 * @param pAge
+	 */
 	public Personne(String pNom, String pPrenom, int pAge) {
 		nom = pNom;
 		prenom = pPrenom;
@@ -19,6 +27,19 @@ public class Personne {
 		System.out.print(this.toString());
 	}
 
+	public String getNom() {
+		return nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	@Override
 	public String toString() {
 		return prenom + " " + nom + " (" + age + " ans)";
 	}

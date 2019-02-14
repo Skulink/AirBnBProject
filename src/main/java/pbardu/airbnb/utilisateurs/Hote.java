@@ -18,4 +18,8 @@ public final class Hote extends Personne {
 		return super.toString() + " qui s'engage à répondre dans les " + delaiReponse + " heures";
 	}
 
+	public int getDelaiReponse() {
+		return delaiReponse;
+	}
+
 }
