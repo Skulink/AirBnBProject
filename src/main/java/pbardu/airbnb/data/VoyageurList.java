@@ -54,7 +54,7 @@ public class VoyageurList extends JPanel {
         mainAside.add(buttonAddVoyageur);
         mainAside.add(buttonDeleteVoyageur);
         this.add(mainAside, BorderLayout.EAST);
-        
+
         buttonAddVoyageur.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -148,6 +148,43 @@ public class VoyageurList extends JPanel {
                 that.repaint();
             }
         });
+
+        buttonDeleteVoyageur.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed (ActionEvent e){
+                Voyageur resultVoyageurList = getSelectedVoyageur();
+                list.remove(resultVoyageurList);
+                listDesVoyageurs.setListData(list.stream().map(Object::toString).toArray(String[]::new));
+            }
+        });
+    }
+
+    public Voyageur getSelectedVoyageur() {
+        List<String> selection = listDesVoyageurs.getSelectedValuesList();
+        if (selection.size() > 0) {
+            String voyageurString = selection.get(0);
+            List<Voyageur> list = AirBnBData.getInstance().getVoyageurs();
+
+                        /*
+                        Version 8 BG ©Jheissler
+                        return list.stream()
+                            .filter(hote -> hote.toString().equals(hoteString)) // Ne garde que ceux qui respecte le test
+                            .findFirst() // On recupère le premier ou aucun Optional<Hote>
+                            .orElseGet(null); // On récupère cette valeur ou null si elle n'existe pas
+                        */
+
+            for (Voyageur v : list) {
+                if (v.toString().equals(voyageurString)) {
+                    return v;
+                }
+            }
+            return null;
+        } else {
+            return null;
+        }
+
+
+
     }
 }
 
