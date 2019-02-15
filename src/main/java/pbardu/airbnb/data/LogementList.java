@@ -47,7 +47,8 @@ public class LogementList extends JPanel {
         }
 
         listDesLogements = new JList<>(data);
-        this.add(listDesLogements, BorderLayout.CENTER);
+        JScrollPane scrollPane = new JScrollPane(listDesLogements);
+        this.add(scrollPane);
         this.buildAside();
     }
 
