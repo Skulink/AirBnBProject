@@ -32,7 +32,7 @@ public abstract class Logement {
 				" situé à : " + adresse  + "<br/>" +
 				" d'une superficie de : " + superficie +" m2 "+ "<br/>" +
 				" accueille un maximum de : " + nbVoyageursMax + " personne(s)<br/>" +
-				"----------------------------------------------------------------------------------------------" +
+				"----------------------------------------" +
 				"</html>";
 	}
 
