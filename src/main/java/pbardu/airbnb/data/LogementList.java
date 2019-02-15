@@ -39,7 +39,7 @@ public class LogementList extends JPanel {
         for (int i = 0; i < list.size(); i++) {
             Logement logement = list.get(i);
             // On converti le logement en chaine de caractère
-            String s = "<html>" + logement.toString() + "</html>";
+            String s = logement.toString();
             data[i] = s;
         }
 
