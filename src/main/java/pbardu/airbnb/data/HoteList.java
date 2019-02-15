@@ -40,6 +40,8 @@ public class HoteList extends JPanel {
             data[i] = s;
         }
         listDesHotes = new JList<>(data);
+        JScrollPane scrollPane = new JScrollPane(listDesHotes);
+        this.add(scrollPane);
         listDesHotes.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.add(listDesHotes, BorderLayout.CENTER);
         if (!withoutAside) {
