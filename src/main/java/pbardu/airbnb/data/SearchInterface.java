@@ -107,7 +107,7 @@ public class SearchInterface extends JPanel {
 
                 viewResultSearch.setTitle("Resultat de la recherche");
                 //On donne un titre a l'application
-                viewResultSearch.setSize(700,500);
+                viewResultSearch.setSize(350,500);
                 // On donne une taille a notre fenetre
                 viewResultSearch.setLocationRelativeTo(null);
                 // On centre la fenetre sur l'ecran
