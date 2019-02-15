@@ -42,6 +42,8 @@ public class VoyageurList extends JPanel {
         }
 
         listDesVoyageurs = new JList<>(data);
+        JScrollPane scrollPane = new JScrollPane(listDesVoyageurs);
+        this.add(scrollPane);
         this.add(listDesVoyageurs);
         this.buildAside();
 
