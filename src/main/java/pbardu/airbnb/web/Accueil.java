@@ -2,12 +2,10 @@ package pbardu.airbnb.web;
 
 import pbardu.airbnb.data.*;
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 
 /**
  * Classe permettant de gérer le contenue de l'interface
@@ -15,10 +13,33 @@ import java.awt.event.ActionListener;
  */
 public class Accueil {
 
+    //Declaration + initialisation + affectation paramétre "text"
     private JFrame mainFrame = new JFrame();
     private JPanel mainPanel = new JPanel();
     private JMenuBar mainBar = new JMenuBar();
-    private JPanel mainAside = new JPanel();
+    //Menu et sous menu pour Accueil
+    private JMenu accueil = new JMenu("Accueil");
+    private JMenuItem retour = new JMenuItem("Retour à l'accueil");
+    //Menu et sous menu pour logement
+    private JMenu logement = new JMenu("Gestion des logements");
+    private JMenuItem listLogement = new JMenuItem("Lister les logements");
+    private JMenuItem addLogement = new JMenuItem("Ajouter un logement");
+    private JMenuItem removeLogement = new JMenuItem("Supprimer un logement");
+    //Menu et sous menu pour hote
+    private JMenu hote = new JMenu("Gestion des hôtes");
+    private JMenuItem listHote = new JMenuItem("Lister les hôtes");
+    private JMenuItem addHote = new JMenuItem("Ajouter un hôte");
+    private JMenuItem removeHote = new JMenuItem("Supprimer un hôte");
+    //Menu et sous menu pour voyageur
+    private JMenu voyageur = new JMenu("Gestion des voyageurs");
+    private JMenuItem listVoyageur = new JMenuItem("Lister les voyageurs");
+    private JMenuItem addVoyageur = new JMenuItem("Ajouter un voyageur");
+    private JMenuItem removeVoyageur = new JMenuItem("Supprimer un voyageur");
+    //Menu et sous menu pour reservation
+    private JMenu reservation = new JMenu("Gestion des réservations");
+    private JMenuItem listReservation = new JMenuItem("Lister les reservations");
+    private JMenuItem addReservation = new JMenuItem("Ajouter une reservation");
+    private JMenuItem removeReservation = new JMenuItem("Supprimer une reservation");
 
     /**
      * Constructeur de la page d'accueil
@@ -37,7 +58,6 @@ public class Accueil {
         mainPanel.setLayout(new BorderLayout());
         mainFrame.setJMenuBar(mainBar);
         this.buildMenuBar();
-
         mainFrame.setContentPane(new SearchInterface());
     }
 
@@ -46,8 +66,7 @@ public class Accueil {
      * Permettant de construire la barre de navigation
      */
     private void buildMenuBar() {
-        JMenu accueil = new JMenu("Accueil");
-        JMenuItem retour = new JMenuItem("Retour à l'accueil");
+
         retour.addActionListener(e -> {
             System.out.println("click");
             mainFrame.setContentPane(new SearchInterface());
@@ -55,36 +74,17 @@ public class Accueil {
             mainFrame.repaint();
         });
         accueil.add(retour);
-
-        //Déclaration + initialisation + affectation paramétre "text"
-        JMenu logement = new JMenu("Gestion des logements");
-        JMenuItem listLogement = new JMenuItem("Lister les logements");
-        JMenuItem addLogement = new JMenuItem("Ajouter un logement");
-        JMenuItem removeLogement = new JMenuItem("Supprimer un logement");
         logement.add(listLogement);
         logement.add(addLogement);
         logement.add(removeLogement);
-
-        JMenu hote = new JMenu("Gestion des hôtes");
-        JMenuItem listHote = new JMenuItem("Lister les hôtes");
-        JMenuItem addHote = new JMenuItem("Ajouter un hôte");
-        JMenuItem removeHote = new JMenuItem("Supprimer un hôte");
         hote.add(listHote);
         hote.add(addHote);
         hote.add(removeHote);
 
-        JMenu voyageur = new JMenu("Gestion des voyageurs");
-        JMenuItem listVoyageur = new JMenuItem("Lister les voyageurs");
-        JMenuItem addVoyageur = new JMenuItem("Ajouter un voyageur");
-        JMenuItem removeVoyageur = new JMenuItem("Supprimer un voyageur");
         voyageur.add(listVoyageur);
         voyageur.add(addVoyageur);
         voyageur.add(removeVoyageur);
 
-        JMenu reservation = new JMenu("Gestion des réservations");
-        JMenuItem listReservation = new JMenuItem("Lister les reservations");
-        JMenuItem addReservation = new JMenuItem("Ajouter une reservation");
-        JMenuItem removeReservation = new JMenuItem("Supprimer une reservation");
         reservation.add(listReservation);
         reservation.add(addReservation);
         reservation.add(removeReservation);
@@ -99,7 +99,7 @@ public class Accueil {
         listLogement.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainFrame.setContentPane(new LogementList(mainPanel));
+                mainFrame.setContentPane(new LogementList(false));
                 mainFrame.setVisible(true);
             }
         });
@@ -108,7 +108,7 @@ public class Accueil {
         listHote.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainFrame.setContentPane(new HoteList());
+                mainFrame.setContentPane(new HoteList(false));
                 mainFrame.setVisible(true);
             }
         });
@@ -116,7 +116,7 @@ public class Accueil {
         listVoyageur.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainFrame.setContentPane(new VoyageurList());
+                mainFrame.setContentPane(new VoyageurList(false));
                 mainFrame.setVisible(true);
             }
         });
@@ -128,11 +128,7 @@ public class Accueil {
                 mainFrame.setVisible(true);
             }
         });
-
     }
-
-
-
 
     /**
      * Methode show permanttant l'affichage de la page d'accueil

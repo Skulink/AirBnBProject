@@ -4,15 +4,27 @@ import pbardu.airbnb.utilisateurs.Voyageur;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
+import static java.awt.Color.green;
+import static java.awt.Color.red;
+
+/**
+ * Classe représentant une liste des voyageurs
+ * Extends JPanel pour son utilisation
+ */
 public class VoyageurList extends JPanel {
     private JList<String> listDesVoyageurs;
+    private final VoyageurList that = this;
+    private List<Voyageur> list = AirBnBData.getInstance().getVoyageurs();
+    private JButton buttonAddVoyageur = new JButton("Ajouter");
+    private JButton buttonDeleteVoyageur = new JButton("Supprimer");
 
     //Constructeur
-    public VoyageurList() {
+    public VoyageurList(boolean withouAside) {
         this.setLayout(new BorderLayout());
-        List<Voyageur> list = AirBnBData.getInstance().getVoyageurs();
 
         /*
          Version Java 8 Stream API
@@ -37,11 +49,103 @@ public class VoyageurList extends JPanel {
 
     private void buildAside() {
         JPanel mainAside = new JPanel();
-        mainAside.add(new JButton("Ajouter"));
-        mainAside.add(new JButton("Supprimer"));
+        mainAside.add(buttonAddVoyageur);
+        mainAside.add(buttonDeleteVoyageur);
         this.add(mainAside, BorderLayout.EAST);
+        
+        buttonAddVoyageur.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
+                that.remove(mainAside);
+                that.revalidate();
+                that.repaint();
+
+                JPanel panelVoyageur = new JPanel();
+
+                //JLabel
+                JLabel labelNomVoyageur = new JLabel("Nom du nouveau voyageur : ");
+                JLabel labelPrenomVoyageur = new JLabel("Prénom du nouveau voyageur : ");
+                JLabel labelAgeVoyageur = new JLabel("Age du nouveau voyageur : ");
+
+                //JTextField
+                JTextField textFieldNomVoyageur = new JTextField();
+                JTextField textFieldPrenomVoyageur = new JTextField();
+                JTextField textFieldAgeVoyageur = new JTextField();
+                JButton btnAddVoyageur = new JButton("Ajouter un Voyageur");
+                btnAddVoyageur.setBackground(green);
+                btnAddVoyageur.setOpaque(true);
+                btnAddVoyageur.setBorderPainted(false);
+                panelVoyageur.setLayout(new GridLayout(8, 1));
+                JButton btnBack = new JButton("Retour");
+                btnBack.setBackground(red);
+                btnBack.setOpaque(true);
+                btnBack.setBorderPainted(false);
+                //Ajout dans le panelVoyageur du label labelTarifParNuit + listHote
+                panelVoyageur.add(labelNomVoyageur);
+                panelVoyageur.add(textFieldNomVoyageur);
+                //Ajout dans le panelVoyageur du label labelAdresse + textFieldAdresse
+                panelVoyageur.add(labelPrenomVoyageur);
+                panelVoyageur.add(textFieldPrenomVoyageur);
+                //Ajout dans le panelVoyageur du label labelSuperficie + textFieldSuperficie
+                panelVoyageur.add(labelAgeVoyageur);
+                panelVoyageur.add(textFieldAgeVoyageur);
+                //Ajout bouton de validation
+                panelVoyageur.add(btnAddVoyageur);
+                //Ajout du bouton de retour
+                panelVoyageur.add(btnBack);
+
+                btnBack.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        //todo retourne sur l'ecran precedent
+                        panelVoyageur.setVisible(false);
+                    }
+                });
+
+
+                //Action Listener lors du clic sur le bouton validé
+                btnAddVoyageur.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        //Hote resultHotList = listHote.getSelectedHote();
+
+                        String resultNom = "";
+                        if (textFieldNomVoyageur.getText().trim().length() > 0) {
+                            resultNom = textFieldNomVoyageur.getText();
+                        }
+                        String resultPrenom = "";
+                        if (textFieldPrenomVoyageur.getText().trim().length() > 0) {
+                            resultPrenom = textFieldPrenomVoyageur.getText();
+                        }
+                        int resultAge = 0;
+                        if (textFieldAgeVoyageur.getText().trim().length() > 0) {
+                            resultAge = Integer.parseInt(textFieldAgeVoyageur.getText());
+                        }
+
+                        if (resultNom != null && resultPrenom != null && resultAge != 0) {
+                            System.out.println(resultNom + "" + resultPrenom + "" + resultAge);
+                            Voyageur addVoyageur = new Voyageur(resultNom, resultPrenom, resultAge);
+
+                            //Mise à jour de la liste des logement avec le new logement
+
+                            list.add(addVoyageur);
+                            //System.out.println(list);
+                            listDesVoyageurs.setListData(list.stream().map(Object::toString).toArray(String[]::new));
+                        } else {
+                            //custom title, warning icon
+                            JOptionPane.showMessageDialog(mainAside,
+                                    "Votre saisi n'est pas valide, veuillez recommencer",
+                                    "Champs du formulaire incorrect",
+                                    JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
+                });
+                that.add(panelVoyageur, BorderLayout.EAST);
+                that.revalidate();
+                that.repaint();
+            }
+        });
     }
-
 }
 
