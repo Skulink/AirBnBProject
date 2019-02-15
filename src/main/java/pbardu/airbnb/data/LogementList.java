@@ -23,6 +23,9 @@ public class LogementList extends JPanel {
     private JList<String> listDesLogements;
     private final LogementList that = this;
     private List<Logement> list = AirBnBData.getInstance().getLogements();
+    private JButton buttonAddLogement = new JButton("Ajouter");
+    private JButton buttonDeleteLogement = new JButton("Supprimer");
+
 
     //Constructeur
     public LogementList(boolean withoutAside) {
@@ -49,8 +52,6 @@ public class LogementList extends JPanel {
 
     private void buildAside() {
         JPanel mainAside = new JPanel();
-        JButton buttonAddLogement = new JButton("Ajouter");
-        JButton buttonDeleteLogement = new JButton("Supprimer");
         mainAside.add(buttonAddLogement);
         mainAside.add(buttonDeleteLogement);
         this.add(mainAside, BorderLayout.EAST);
@@ -158,8 +159,7 @@ public class LogementList extends JPanel {
                             list.add(addLogement);
                             //System.out.println(list);
                             listDesLogements.setListData(list.stream().map(Object::toString).toArray(String[]::new));
-                        }
-                        else{
+                        } else {
                             //custom title, warning icon
                             JOptionPane.showMessageDialog(mainAside,
                                     "Votre saisi n'est pas valide, veuillez recommencer",
@@ -174,5 +174,45 @@ public class LogementList extends JPanel {
                 that.repaint();
             }
         });
+
+        buttonDeleteLogement.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed (ActionEvent e){
+                Logement resultLogementList = getSelectedLogement();
+                System.out.println(resultLogementList);
+                System.out.println("toto");
+            }
+        });
     }
+
+
+    public Logement getSelectedLogement() {
+        List<String> selection = listDesLogements.getSelectedValuesList();
+        if (selection.size() > 0) {
+            String logementString = selection.get(0);
+            List<Logement> list = AirBnBData.getInstance().getLogements();
+
+                        /*
+                        Version 8 BG ©Jheissler
+                        return list.stream()
+                            .filter(hote -> hote.toString().equals(hoteString)) // Ne garde que ceux qui respecte le test
+                            .findFirst() // On recupère le premier ou aucun Optional<Hote>
+                            .orElseGet(null); // On récupère cette valeur ou null si elle n'existe pas
+                        */
+
+            for (Logement l : list) {
+                if (l.toString().equals(logementString)) {
+                    return l;
+                }
+            }
+            return null;
+        } else {
+            return null;
+        }
+
+
+
+    }
+
+
 }
