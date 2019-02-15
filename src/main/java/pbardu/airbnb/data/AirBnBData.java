@@ -66,4 +66,8 @@ public final class AirBnBData {
     public ArrayList<Voyageur> getVoyageurs() {
         return voyageurs;
     }
+
+    public ArrayList<Reservation> getReservations() {
+        return reservations;
+    }
 }

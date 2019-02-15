@@ -1,37 +1,39 @@
 package pbardu.airbnb.data;
 
+import pbardu.airbnb.logements.Logement;
 import pbardu.airbnb.reservations.Reservation;
-import pbardu.airbnb.utilisateurs.Hote;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.List;
 
-public class ReservationList extends JPanel{
+
+public class ReservationList extends JPanel {
     private JList<String> listDesReservations;
+    private JList<String> listDesLogements;
+    private final ReservationList that = this;
+    private List<Logement> list = AirBnBData.getInstance().getLogements();
+
 
     //Constructeur
     public ReservationList() {
 
-        //List<Reservation> list = AirBnBData.getInstance();
+        this.setLayout(new BorderLayout());
 
-        /*
-         Version Java 8 Stream API
-         String[] data = list.stream().map(Object::toString).toArray(String[]::new)
-         */
-
-        // Création d'un tableau de la même taille que la list "list"
-       // String[] data = new String[list.size()];
+        String[] data = new String[list.size()];
         // Pour tous les éléments dans la list "list"
-       // for(int i = 0; i < list.size(); i++) {
-       //     Reservation reservation = list.get(i);
+        for (int i = 0; i < list.size(); i++) {
+            Logement logement = list.get(i);
             // On converti le logement en chaine de caractère
-       //     String s = reservation.toString();
-       //     data[i] = s;
+            String s = logement.toString();
+            data[i] = s;
         }
 
-       // listDesReservations = new JList<>(data);
-       // this.add(listDesReservations);
+        listDesLogements = new JList<>(data);
+        JScrollPane scrollPane = new JScrollPane(listDesLogements);
+        this.add(scrollPane);
+
+
 
     }
-
-//}
+}

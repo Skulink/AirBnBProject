@@ -8,46 +8,60 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class SearchInterface {
-    private JFrame frame = new JFrame();
-    private JPanel panel = new JPanel(new GridLayout(5,2));
+public class SearchInterface extends JPanel {
+
     private JButton buttonSearch = new JButton("Rechercher");
 
-    public SearchInterface(){
-
-        frame.setTitle("Ma premiere fenetre");
-        //On donne un titre a l'application
-        frame.setSize(320,240);
-        // On donne une taille a notre fenetre
-        frame.setLocationRelativeTo(null);
-        // On centre la fenetre sur l'ecran
-        frame.setResizable(true);
-        // On interdit la redimensionnement de la fenetre
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        panel.setSize(150,100);
-       // panel.add(new JButton("toto"));
-
-        JTextField nbVoyageurs = new JTextField();
-        JTextField MinPrice = new JTextField();
-        JTextField MaxPrice = new JTextField();
 
 
+    public SearchInterface()    {
+
+        // Je créée un layout de la Class BoxLayout pour afficher les panel à la vertical centré
+        this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+
+        // J'instancie mes textField
+        JTextField nbVoyageurs = new JTextField(15);
+        JTextField minPrice = new JTextField(15);
+        JTextField maxPrice = new JTextField(15);
+
+
+        //J'instancie mes checkBox
         JCheckBox checkBoxPiscine = new JCheckBox("Je veux une piscine !");
         JCheckBox checkBoxBalcon = new JCheckBox("Je veux un balcon !");
         JCheckBox checkBoxJardin = new JCheckBox("Je veux un Jardin !");
 
+        //J'instancie un panel pour le nombre de voyageur afin de l'afficher à l'horizontal
+        JPanel panelNbVoyageur = new JPanel();
+        panelNbVoyageur.setLayout(new FlowLayout(FlowLayout.CENTER));
+        panelNbVoyageur.add(new JLabel("Nombre de voyageurs * : "));
+        panelNbVoyageur.add(nbVoyageurs);
+        this.add(panelNbVoyageur);
 
-        panel.add(new JLabel("Nombre de voyageurs *"));
-        panel.add(nbVoyageurs);
-        panel.add(new JLabel("Prix minimum"));
-        panel.add(MinPrice);
-        panel.add(new JLabel("Prix maximum"));
-        panel.add(MaxPrice);
-        panel.add(checkBoxBalcon);
-        panel.add(checkBoxJardin);
-        panel.add(checkBoxPiscine);
-        panel.add(buttonSearch);
+
+        //J'instancie un panel pour le prix minimun afin de l'afficher à l'horizontal
+        JPanel panelMinPrice = new JPanel();
+        panelMinPrice.setLayout(new FlowLayout(FlowLayout.CENTER));
+        panelMinPrice.add(new JLabel("Prix minimum : "));
+        panelMinPrice.add(minPrice);
+        this.add(panelMinPrice);
+
+        JPanel panelMaxPrice = new JPanel();
+        panelMaxPrice.setLayout(new FlowLayout(FlowLayout.CENTER));
+        panelMaxPrice.add(new JLabel("Prix maximum : "));
+        panelMaxPrice.add(maxPrice);
+        this.add(panelMaxPrice);
+
+        JPanel checkBoxPanel = new JPanel();
+        checkBoxPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        checkBoxPanel.add(checkBoxBalcon);
+        checkBoxPanel.add(checkBoxJardin);
+        checkBoxPanel.add(checkBoxPiscine);
+        this.add(checkBoxPanel);
+
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(buttonSearch);
+        this.add(buttonPanel);
 
 
         buttonSearch.addActionListener(new ActionListener() {
@@ -60,13 +74,13 @@ public class SearchInterface {
                 }
 
                 int resultPrixMini = 0;
-                if(MinPrice.getText().trim().length() > 0) {
-                    resultPrixMini = Integer.parseInt(MinPrice.getText());
+                if(minPrice.getText().trim().length() > 0) {
+                    resultPrixMini = Integer.parseInt(minPrice.getText());
                 }
 
                 int resultPrixMAxi = Integer.MAX_VALUE;
-                if(MaxPrice.getText().trim().length() > 0) {
-                    resultPrixMAxi = Integer.parseInt(MaxPrice.getText());
+                if(maxPrice.getText().trim().length() > 0) {
+                    resultPrixMAxi = Integer.parseInt(maxPrice.getText());
                 }
 
                 boolean resultCheckBoxPiscine = false;
@@ -99,10 +113,6 @@ public class SearchInterface {
                 // On centre la fenetre sur l'ecran
                 viewResultSearch.setResizable(true);
 
-                viewResultSearch.setLayout(new BorderLayout(500,500));
-                // On interdit la redimensionnement de la fenetre
-                viewResultSearch.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
                 Search.SearchBuilder submitResearch = new Search.SearchBuilder(resultNbVoyageurs)
                         .tarifMinParNuit(resultPrixMini)
                         .tarifMaxParNuit(resultPrixMAxi)
@@ -122,9 +132,7 @@ public class SearchInterface {
             }
         });
 
-        frame.add(panel);
-        panel.setVisible(true);
-        frame.setVisible(true);
+
 
     }
 }
