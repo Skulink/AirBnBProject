@@ -10,7 +10,9 @@ public class SejourCourt extends Sejour implements ConditionsTarifairesInterface
 
 	public SejourCourt(Date dateArrivee, Logement logement, int nbNuits, int nbVoyageurs) {
 		super(dateArrivee, logement, nbNuits, nbVoyageurs);
-		miseAJourTarif();
+
+		//Commenté cause bug à  la creation de la reservation
+		//miseAJourTarif();
 	}
 
 	@Override
