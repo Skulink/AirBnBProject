@@ -179,7 +179,8 @@ public class LogementList extends JPanel {
             @Override
             public void actionPerformed (ActionEvent e){
                 Logement resultLogementList = getSelectedLogement();
-                resultLogementList.
+                list.remove(resultLogementList);
+                listDesLogements.setListData(list.stream().map(Object::toString).toArray(String[]::new));
             }
         });
     }
