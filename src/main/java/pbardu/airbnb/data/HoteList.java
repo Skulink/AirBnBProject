@@ -16,13 +16,41 @@ import static java.awt.Color.red;
  * Extends JPanel pour son utilisation
  */
 public class HoteList extends JPanel {
+    //Declaration + initisation
+    //Pour les listes
     private JList<String> listDesHotes;
-    private final HoteList that = this;
     private List<Hote> list = AirBnBData.getInstance().getHotes();
+
+    //Declaration de that qui retourne this pour son utilisation dans la classe anonyme
+    private final HoteList that = this;
+
+    //Pour les elements Swing JButton
     private JButton buttonAddHote = new JButton("Ajouter");
     private JButton buttonDeleteHote = new JButton("Supprimer");
+    private JButton btnAddHote = new JButton("Ajouter l'hote");
+    private JButton btnBack = new JButton("Retour");
 
-    //Constructeur
+    //Pour les elements Swing JScrollPane
+    private JScrollPane scrollPane = new JScrollPane(listDesHotes);
+
+    //Pour les elements Swing JPanel
+    private JPanel panelHote = new JPanel();
+    private JPanel mainAside = new JPanel();
+
+    //Pour les elements Swing JLabel
+    private JLabel labelNom = new JLabel("Nom du nouvel hôte : ");
+    private JLabel labelPrenom = new JLabel("Prénom du nouvel hôte : ");
+    private JLabel labelAge = new JLabel("Age du nouvel hôte : ");
+    private JLabel labelDelai = new JLabel("Délai de réponse du nouvel hôte : ");
+
+    //Pour les elements Swing JTextField
+    private JTextField textFieldNom = new JTextField();
+    private JTextField textFieldPrenom = new JTextField();
+    private JTextField textFieldAge = new JTextField();
+    private JTextField textFieldDelai = new JTextField();
+
+
+    //Constructeur hoteList à appeler pour avoir l'aside sans les bouton ajout et supprimer
     public HoteList(boolean withoutAside) {
         this.setLayout(new BorderLayout());
 
@@ -31,8 +59,9 @@ public class HoteList extends JPanel {
          String[] data = list.stream().map(Object::toString).toArray(String[]::new)
          */
         // Création d'un tableau de la même taille que la list "list"
-        String[] data = new String[list.size()];
         // Pour tous les éléments dans la list "list"
+        //Pour les tableaux
+        String[] data = new String[list.size()];
         for (int i = 0; i < list.size(); i++) {
             Hote hote = list.get(i);
             // On converti l'hote en chaine de caractère
@@ -40,27 +69,32 @@ public class HoteList extends JPanel {
             data[i] = s;
         }
         listDesHotes = new JList<>(data);
-        JScrollPane scrollPane = new JScrollPane(listDesHotes);
-        this.add(scrollPane);
         listDesHotes.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        this.add(scrollPane);
         this.add(listDesHotes, BorderLayout.CENTER);
+
+        //Appel du constructeur builAside avec uniquement les deux bouton si pas de parametre passé dans le constructeur
         if (!withoutAside) {
             this.buildAside();
         }
     }
 
+    //Constructeur sans parametre
     public HoteList() {
         this(false);
     }
 
-
+    /**
+     * Methode de construction du aside
+     */
     public void buildAside() {
 
-        JPanel mainAside = new JPanel();
         mainAside.add(buttonAddHote);
         mainAside.add(buttonDeleteHote);
         this.add(mainAside, BorderLayout.EAST);
 
+        //Action Listener lors du clic sur le bouton ajouté
+        //Affiche le formulaire de creation d'un nouvel hote
         buttonAddHote.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -68,30 +102,18 @@ public class HoteList extends JPanel {
                 that.remove(mainAside);
                 that.revalidate();
                 that.repaint();
-
-                JPanel panelHote = new JPanel();
-
-                //JLabel
-                JLabel labelNom = new JLabel("Nom du nouvel hôte : ");
-                JLabel labelPrenom = new JLabel("Prénom du nouvel hôte : ");
-                JLabel labelAge = new JLabel("Age du nouvel hôte : ");
-                JLabel labelDelai = new JLabel("Délai de réponse du nouvel hôte : ");
-
-                //JTextField
-                JTextField textFieldNom = new JTextField();
-                JTextField textFieldPrenom = new JTextField();
-                JTextField textFieldAge = new JTextField();
-                JTextField textFieldDelai = new JTextField();
-                JButton btnAddHote = new JButton("Ajouter l'hote");
+                //Ajout d'un grille 1 colonne 12 lignes pour la mise en page de l'aside
+                panelHote.setLayout(new GridLayout(12, 1));
+                //ajout de parametre sur le bpouton ajout du formulaire
                 btnAddHote.setBackground(green);
                 btnAddHote.setOpaque(true);
                 btnAddHote.setBorderPainted(false);
-                panelHote.setLayout(new GridLayout(12, 1));
-                JButton btnBack = new JButton("Retour");
+                //ajout de parametre sur le bouton retour du formulaire
                 btnBack.setBackground(red);
                 btnBack.setOpaque(true);
                 btnBack.setBorderPainted(false);
-                //Ajout dans le panelHote du label labelTarifParNuit + listHote
+
+                //Ajout dans le panelHote du formulaire composé de ces champs
                 panelHote.add(labelNom);
                 panelHote.add(textFieldNom);
                 //Ajout dans le panelHote du label labelAdresse + textFieldAdresse
@@ -108,6 +130,7 @@ public class HoteList extends JPanel {
                 //Ajout du bouton de retour
                 panelHote.add(btnBack);
 
+                //Action Listener lors du clic sur le bouton retour
                 btnBack.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -167,7 +190,7 @@ public class HoteList extends JPanel {
 
         buttonDeleteHote.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed (ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 Hote resultHoteList = getSelectedHote();
                 list.remove(resultHoteList);
                 listDesHotes.setListData(list.stream().map(Object::toString).toArray(String[]::new));
@@ -182,7 +205,7 @@ public class HoteList extends JPanel {
             List<Hote> list = AirBnBData.getInstance().getHotes();
 
             /*
-            Version 8 BG ©Jheissler
+            Version 8 BG ©JHeissler
             return list.stream()
                 .filter(hote -> hote.toString().equals(hoteString)) // Ne garde que ceux qui respecte le test
                 .findFirst() // On recupère le premier ou aucun Optional<Hote>
