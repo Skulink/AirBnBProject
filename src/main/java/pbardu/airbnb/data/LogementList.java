@@ -206,11 +206,12 @@ public class LogementList extends JPanel {
 
         buttonDeleteLogement.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("test");
+            public void actionPerformed (ActionEvent e){
+                Logement resultLogementList = getSelectedLogement();
+                list.remove(resultLogementList);
+                listDesLogements.setListData(list.stream().map(Object::toString).toArray(String[]::new));
             }
         });
-
-
     }
+
 }
