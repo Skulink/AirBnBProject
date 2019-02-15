@@ -179,8 +179,7 @@ public class LogementList extends JPanel {
             @Override
             public void actionPerformed (ActionEvent e){
                 Logement resultLogementList = getSelectedLogement();
-                System.out.println(resultLogementList);
-                System.out.println("toto");
+                resultLogementList.
             }
         });
     }
