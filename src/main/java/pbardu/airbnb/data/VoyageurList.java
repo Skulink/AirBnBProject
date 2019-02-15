@@ -54,7 +54,7 @@ public class VoyageurList extends JPanel {
         mainAside.add(buttonAddVoyageur);
         mainAside.add(buttonDeleteVoyageur);
         this.add(mainAside, BorderLayout.EAST);
-        
+
         buttonAddVoyageur.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
