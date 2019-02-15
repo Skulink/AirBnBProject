@@ -75,7 +75,6 @@ public class HoteList extends JPanel {
                 JLabel labelAge = new JLabel("Age du nouvel hôte : ");
                 JLabel labelDelai = new JLabel("Délai de réponse du nouvel hôte : ");
 
-
                 //JTextField
                 JTextField textFieldNom = new JTextField();
                 JTextField textFieldPrenom = new JTextField();
@@ -90,20 +89,6 @@ public class HoteList extends JPanel {
                 btnBack.setBackground(red);
                 btnBack.setOpaque(true);
                 btnBack.setBorderPainted(false);
-
-                /*
-                //HoteList listHote = new HoteList(true);
-                JTextField textFieldTarifNuit = new JTextField();
-                JTextField textFieldAdresse = new JTextField();
-                JTextField textFieldSuperficie = new JTextField();
-                JTextField textFieldNbVoyageursMaxt = new JTextField();
-
-                //JScrollPane scrollPaneListHote = new JScrollPane(listHote);
-                //Ajout dans le panelHote du label labelNewHote + listHote
-                //panelHote.add(labelNewHote);
-                //panelHote.add(scrollPaneListHote);
-*/
-
                 //Ajout dans le panelHote du label labelTarifParNuit + listHote
                 panelHote.add(labelNom);
                 panelHote.add(textFieldNom);
@@ -128,7 +113,6 @@ public class HoteList extends JPanel {
                         panelHote.setVisible(false);
                     }
                 });
-
 
                 //Action Listener lors du clic sur le bouton validé
                 btnAddHote.addActionListener(new ActionListener() {
@@ -169,18 +153,13 @@ public class HoteList extends JPanel {
                                     "Champs du formulaire incorrect",
                                     JOptionPane.WARNING_MESSAGE);
                         }
-
                     }
                 });
-
-
                 that.add(panelHote, BorderLayout.EAST);
                 that.revalidate();
                 that.repaint();
             }
         });
-
-
     }
 
     public Hote getSelectedHote() {
@@ -206,8 +185,5 @@ public class HoteList extends JPanel {
         } else {
             return null;
         }
-
     }
-
-
 }

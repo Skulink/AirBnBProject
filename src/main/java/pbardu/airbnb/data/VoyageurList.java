@@ -68,7 +68,6 @@ public class VoyageurList extends JPanel {
                 JLabel labelPrenomVoyageur = new JLabel("Prénom du nouveau voyageur : ");
                 JLabel labelAgeVoyageur = new JLabel("Age du nouveau voyageur : ");
 
-
                 //JTextField
                 JTextField textFieldNomVoyageur = new JTextField();
                 JTextField textFieldPrenomVoyageur = new JTextField();

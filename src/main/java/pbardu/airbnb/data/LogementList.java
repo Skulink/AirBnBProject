@@ -87,8 +87,6 @@ public class LogementList extends JPanel {
                 btnBack.setOpaque(true);
                 btnBack.setBorderPainted(false);
 
-
-
                 panelHote.setLayout(new GridLayout(12, 1));
 
                 JScrollPane scrollPaneListHote = new JScrollPane(listHote);
@@ -167,10 +165,8 @@ public class LogementList extends JPanel {
                                     "Champs du formulaire incorrect",
                                     JOptionPane.WARNING_MESSAGE);
                         }
-
                     }
                 });
-
 
                 that.add(panelHote, BorderLayout.EAST);
                 that.revalidate();
