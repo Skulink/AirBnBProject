@@ -160,6 +160,17 @@ public class HoteList extends JPanel {
                 that.add(panelHote, BorderLayout.EAST);
                 that.revalidate();
                 that.repaint();
+
+            }
+
+        });
+
+        buttonDeleteHote.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed (ActionEvent e){
+                Hote resultHoteList = getSelectedHote();
+                list.remove(resultHoteList);
+                listDesHotes.setListData(list.stream().map(Object::toString).toArray(String[]::new));
             }
         });
     }
