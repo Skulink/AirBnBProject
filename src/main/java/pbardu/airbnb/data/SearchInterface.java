@@ -11,16 +11,15 @@ import java.util.ArrayList;
 public class SearchInterface extends JPanel {
 
     private JButton buttonSearch = new JButton("Rechercher");
+    private final SearchInterface that = this;
+    private JTextField nbVoyageurs = new JTextField(15);
 
-
-
-    public SearchInterface()    {
+    public SearchInterface() {
 
         // Je créée un layout de la Class BoxLayout pour afficher les panel à la vertical centré
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
         // J'instancie mes textField
-        JTextField nbVoyageurs = new JTextField(15);
         JTextField minPrice = new JTextField(15);
         JTextField maxPrice = new JTextField(15);
 
@@ -69,35 +68,68 @@ public class SearchInterface extends JPanel {
             public void actionPerformed(ActionEvent e) {
 
                 int resultNbVoyageurs = 0;
-                if (nbVoyageurs.getText().trim().length() > 0){
-                    resultNbVoyageurs = Integer.parseInt(nbVoyageurs.getText());
+                if (nbVoyageurs.getText().trim().length() > 0) {
+                    try {
+                        resultNbVoyageurs = Integer.parseInt(nbVoyageurs.getText());
+                    } catch (NumberFormatException n) {
+                        JOptionPane.showMessageDialog(that,
+                                "Champs nombre de voyageur incorrecte",
+                                "Votre saisi n'est pas valide, veuillez recommencer",
+                                JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+
+                } else if (nbVoyageurs.getText().trim().length() == 0) {
+
+                    JOptionPane.showMessageDialog(that,
+                            "Champs nombre de voyageur incorrecte",
+                            "Votre saisi n'est pas valide, veuillez recommencer",
+                            JOptionPane.WARNING_MESSAGE);
+                    return;
                 }
 
                 int resultPrixMini = 0;
-                if(minPrice.getText().trim().length() > 0) {
-                    resultPrixMini = Integer.parseInt(minPrice.getText());
+                if (minPrice.getText().trim().length() > 0) {
+                    try {
+                        resultPrixMini = Integer.parseInt(minPrice.getText());
+                    } catch (NumberFormatException n) {
+                        JOptionPane.showMessageDialog(that,
+                                "Champs prix minimum incorrecte",
+                                "Votre saisi n'est pas valide, veuillez recommencer",
+                                JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
                 }
 
                 int resultPrixMAxi = Integer.MAX_VALUE;
-                if(maxPrice.getText().trim().length() > 0) {
-                    resultPrixMAxi = Integer.parseInt(maxPrice.getText());
+                if (maxPrice.getText().trim().length() > 0) {
+                    try {
+                        resultPrixMAxi = Integer.parseInt(maxPrice.getText());
+                    } catch (NumberFormatException n) {
+                        JOptionPane.showMessageDialog(that,
+                                "Champs prix maximum incorrecte",
+                                "Votre saisi n'est pas valide, veuillez recommencer",
+                                JOptionPane.WARNING_MESSAGE);
+                        return;
+                    }
+
                 }
 
                 boolean resultCheckBoxPiscine = false;
 
-                if (checkBoxPiscine.isSelected()){
+                if (checkBoxPiscine.isSelected()) {
 
-                        resultCheckBoxPiscine  = true;
+                    resultCheckBoxPiscine = true;
                 }
                 boolean resultCheckBoxBalcon = false;
-                if (checkBoxBalcon.isSelected()){
+                if (checkBoxBalcon.isSelected()) {
 
                     resultCheckBoxBalcon = true;
                 }
 
                 boolean resultCheckBoxJardin = false;
 
-                if (checkBoxJardin.isSelected()){
+                if (checkBoxJardin.isSelected()) {
                     resultCheckBoxJardin = true;
                 }
 
@@ -107,7 +139,7 @@ public class SearchInterface extends JPanel {
 
                 viewResultSearch.setTitle("Resultat de la recherche");
                 //On donne un titre a l'application
-                viewResultSearch.setSize(700,500);
+                viewResultSearch.setSize(350,500);
                 // On donne une taille a notre fenetre
                 viewResultSearch.setLocationRelativeTo(null);
                 // On centre la fenetre sur l'ecran
@@ -122,8 +154,8 @@ public class SearchInterface extends JPanel {
                 Search search = submitResearch.build();
 
                 ArrayList<Logement> logements = search.result();
-                for (Logement logement: logements) {
-                    JLabel label = new JLabel("<html>"+logement.toString()+"</html>");
+                for (Logement logement : logements) {
+                    JLabel label = new JLabel("<html>" + logement.toString() + "</html>");
                     panel.add(label);
 
                 }
@@ -131,7 +163,6 @@ public class SearchInterface extends JPanel {
                 viewResultSearch.setVisible(true);
             }
         });
-
 
 
     }
